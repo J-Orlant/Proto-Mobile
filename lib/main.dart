@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
 
 void main() {
@@ -33,13 +34,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HexColor.fromHex('#F99B2A'),
       body: SafeArea(
         child: tabs[_currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         iconSize: 30,
-        selectedItemColor: Colors.red,
+        backgroundColor: HexColor.fromHex('#F58123'),
+        selectedItemColor: Colors.white,
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
