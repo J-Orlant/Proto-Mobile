@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
+import 'package:proto/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -29,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   final tabs = [
     HomeScreen(),
     Center(child: Text('Books')),
-    Center(child: Text('Profile')),
+    Profile(),
   ];
   @override
   Widget build(BuildContext context) {

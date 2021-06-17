@@ -153,7 +153,7 @@ class HomeScreen extends StatelessWidget {
                                             ],
                                           )
                                         ],
-                                      )
+                                      ),
                                     ],
                                   ))
                             ],
@@ -168,6 +168,7 @@ class HomeScreen extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15.0)),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
@@ -184,27 +185,37 @@ class HomeScreen extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                   child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Gudeg Jawa',
-                                        style: TextStyle(
-                                          fontSize: 28.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'RedHatTextBold',
+                                      Container(
+                                        height: 124,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Gudeg Jawa',
+                                              style: TextStyle(
+                                                fontSize: 28.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontFamily: 'RedHatTextBold',
+                                              ),
+                                            ),
+                                            Text(
+                                              'from Jawa',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black,
+                                                fontFamily: 'RedHatText',
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                      Text(
-                                        'from Jawa',
-                                        style: TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'RedHatText',
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -214,18 +225,25 @@ class HomeScreen extends StatelessWidget {
                                             '1 hours',
                                             style: TextStyle(
                                                 fontSize: 15.0,
-                                                fontWeight: FontWeight.w100),
+                                                fontWeight: FontWeight.w200,
+                                                color: Colors.black),
                                           ),
                                           Row(
                                             children: [
                                               IconButton(
-                                                  onPressed: () {},
-                                                  icon: Icon(Icons.thumb_up)),
-                                              Text('126')
+                                                onPressed: () {},
+                                                icon: Icon(Icons.thumb_up),
+                                                color: Colors.black,
+                                              ),
+                                              Text(
+                                                '216',
+                                                style: TextStyle(
+                                                    color: Colors.black),
+                                              )
                                             ],
                                           )
                                         ],
-                                      )
+                                      ),
                                     ],
                                   ))
                             ],
