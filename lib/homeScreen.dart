@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget {
   final styleJudul = TextStyle(
     fontSize: 25.0,
     fontWeight: FontWeight.bold,
+    fontFamily: 'RedHatText',
   );
 
   @override
@@ -42,11 +43,17 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   'Popular Food Today',
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'RedHatText',
+                  ),
                 ),
                 Text(
                   'View all',
-                  style: TextStyle(fontWeight: FontWeight.w100),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w100,
+                  ),
                 ),
               ],
             ),
@@ -66,16 +73,17 @@ class HomeScreen extends StatelessWidget {
                       width: 210,
                       height: 400,
                       child: Card(
+                          elevation: 2.5,
                           color: HexColor.fromHex('#F58123'),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
+                              borderRadius: BorderRadius.circular(15.0)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(5.0),
+                                borderRadius: BorderRadius.circular(15.0),
                                 child: Container(
-                                  height: 250,
+                                  height: 200,
                                   child: Image.network(
                                     'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg',
                                     fit: BoxFit.fill,
@@ -87,18 +95,37 @@ class HomeScreen extends StatelessWidget {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                   child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Nasi Uduk',
-                                        style: TextStyle(
-                                            fontSize: 32.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(
-                                        height: 30,
+                                      Container(
+                                        height: 124,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Nasi Uduk',
+                                              style: TextStyle(
+                                                fontSize: 28.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontFamily: 'RedHatTextBold',
+                                              ),
+                                            ),
+                                            Text(
+                                              'from Jakarta',
+                                              style: TextStyle(
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontFamily: 'RedHatText',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -136,15 +163,16 @@ class HomeScreen extends StatelessWidget {
                       width: 210,
                       height: 400,
                       child: Card(
+                          elevation: 2.5,
                           color: HexColor.fromHex('#FAE075'),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
+                              borderRadius: BorderRadius.circular(15.0)),
                           child: Column(
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(5.0),
+                                borderRadius: BorderRadius.circular(15.0),
                                 child: Container(
-                                  height: 250,
+                                  height: 200,
                                   child: Image.network(
                                     'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:good,w_640,ar_16:9/v1566898918/jwgiwgsirs5vwzbobopu.jpg',
                                     fit: BoxFit.fill,
@@ -162,8 +190,18 @@ class HomeScreen extends StatelessWidget {
                                       Text(
                                         'Gudeg Jawa',
                                         style: TextStyle(
-                                            fontSize: 32.0,
-                                            fontWeight: FontWeight.bold),
+                                          fontSize: 28.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'RedHatTextBold',
+                                        ),
+                                      ),
+                                      Text(
+                                        'from Jawa',
+                                        style: TextStyle(
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'RedHatText',
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 30,
@@ -197,15 +235,16 @@ class HomeScreen extends StatelessWidget {
                       width: 210,
                       height: 400,
                       child: Card(
+                          elevation: 2.5,
                           color: HexColor.fromHex('#F58123'),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
+                              borderRadius: BorderRadius.circular(15.0)),
                           child: Column(
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(5.0),
+                                borderRadius: BorderRadius.circular(15.0),
                                 child: Container(
-                                  height: 250,
+                                  height: 200,
                                   child: Image.network(
                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRw2BVNVZD7HL4Y5JY_8RvIxfhTFynRRQSew&usqp=CAU',
                                     fit: BoxFit.fill,
@@ -221,10 +260,22 @@ class HomeScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Nasi Uduk',
+                                        'Ikan  Cakalang',
                                         style: TextStyle(
-                                            fontSize: 32.0,
-                                            fontWeight: FontWeight.bold),
+                                          color: Colors.white,
+                                          fontSize: 28.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'RedHatTextBold',
+                                        ),
+                                      ),
+                                      Text(
+                                        'from Sulawesi Utara',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'RedHatText',
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 30,
@@ -236,15 +287,22 @@ class HomeScreen extends StatelessWidget {
                                           Text(
                                             '30 min',
                                             style: TextStyle(
+                                                color: Colors.white,
                                                 fontSize: 15.0,
                                                 fontWeight: FontWeight.w100),
                                           ),
                                           Row(
                                             children: [
                                               IconButton(
-                                                  onPressed: () {},
-                                                  icon: Icon(Icons.thumb_up)),
-                                              Text('243')
+                                                onPressed: () {},
+                                                icon: Icon(Icons.thumb_up),
+                                                color: Colors.white,
+                                              ),
+                                              Text(
+                                                '243',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              )
                                             ],
                                           )
                                         ],
