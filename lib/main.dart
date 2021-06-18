@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
 import 'package:proto/profile.dart';
+import 'package:proto/profile_user.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
   final tabs = [
     HomeScreen(),
     Center(child: Text('Books')),
-    Profile(),
+    ProfileUser(),
   ];
   @override
   Widget build(BuildContext context) {
