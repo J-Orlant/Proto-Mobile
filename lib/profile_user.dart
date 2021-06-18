@@ -8,10 +8,18 @@ class ProfileUser extends StatelessWidget {
       backgroundColor: Colors.orange,
       body: SafeArea(
         child: Container(
-          width: 330,
+          width: 320,
           child: ListView(
             children: <Widget>[
               roundedCard(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Menu yang sudah dibuat: ',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              buildCard(),
             ],
           ),
         ),
@@ -22,7 +30,7 @@ class ProfileUser extends StatelessWidget {
 
 Card roundedCard() {
   return Card(
-    margin: EdgeInsets.only(left: 13, top: 80),
+    margin: EdgeInsets.only(left: 20, top: 80),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(24),
     ),
@@ -67,7 +75,7 @@ Card roundedCard() {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 200.0),
+                padding: const EdgeInsets.only(left: 190.0),
                 child: IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.thumb_up),
@@ -82,6 +90,62 @@ Card roundedCard() {
           )
         ],
       ),
+    ),
+  );
+}
+
+Card buildCard() {
+  return Card(
+    elevation: 5,
+    margin: EdgeInsets.only(left: 25),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+            bottom: 0,
+          ).copyWith(bottom: 0),
+          child: Text(
+            'Nasi goreng',
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+            bottom: 0,
+          ).copyWith(bottom: 0),
+          child: Text(
+            'Nasi goreng',
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+            bottom: 0,
+          ).copyWith(bottom: 0),
+          child: Text(
+            'Nasi goreng',
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+            bottom: 0,
+          ).copyWith(bottom: 0),
+          child: Text(
+            'Nasi goreng',
+            style: TextStyle(fontSize: 15),
+          ),
+        ),
+      ],
     ),
   );
 }
