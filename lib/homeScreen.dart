@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:proto/detailFood.dart';
 import 'package:proto/heks_color.dart';
+import 'package:proto/model/TopFood_data.dart';
 
 class HomeScreen extends StatelessWidget {
   final styleJudul = TextStyle(
@@ -12,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -22,11 +25,11 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'What Do You',
+                    'Kamu Mau',
                     style: styleJudul,
                   ),
                   Text(
-                    'Want To Cook Today?',
+                    'Masak Apa Hari Ini?',
                     style: styleJudul,
                   )
                 ],
@@ -42,7 +45,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Popular Food Today',
+                  'Makanan Terpopuler Minggu Ini',
                   style: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
@@ -50,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'View all',
+                  'Lihat Semua',
                   style: TextStyle(
                     fontWeight: FontWeight.w100,
                   ),
@@ -61,282 +64,254 @@ class HomeScreen extends StatelessWidget {
           SizedBox(
             height: 15.0,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            height: 400,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 210,
-                      height: 400,
-                      child: Card(
-                          elevation: 2.5,
-                          color: HexColor.fromHex('#F58123'),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Container(
-                                  height: 200,
-                                  child: Image.network(
-                                    'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 20.0),
-                              Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        height: 124,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Nasi Uduk',
-                                              style: TextStyle(
-                                                fontSize: 28.0,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                                fontFamily: 'RedHatTextBold',
-                                              ),
-                                            ),
-                                            Text(
-                                              'from Jakarta',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                                fontFamily: 'RedHatText',
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            '20 - 30 min',
-                                            style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w200,
-                                                color: Colors.white),
-                                          ),
-                                          Row(
-                                            children: [
-                                              IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.thumb_up),
-                                                color: Colors.white,
-                                              ),
-                                              Text(
-                                                '216',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ))
-                            ],
-                          )),
-                    ),
-                    Container(
-                      width: 210,
-                      height: 400,
-                      child: Card(
-                          elevation: 2.5,
-                          color: HexColor.fromHex('#FAE075'),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Container(
-                                  height: 200,
-                                  child: Image.network(
-                                    'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:good,w_640,ar_16:9/v1566898918/jwgiwgsirs5vwzbobopu.jpg',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 20.0),
-                              Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        height: 124,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Gudeg Jawa',
-                                              style: TextStyle(
-                                                fontSize: 28.0,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontFamily: 'RedHatTextBold',
-                                              ),
-                                            ),
-                                            Text(
-                                              'from Jawa',
-                                              style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                                fontFamily: 'RedHatText',
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            '1 hours',
-                                            style: TextStyle(
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w200,
-                                                color: Colors.black),
-                                          ),
-                                          Row(
-                                            children: [
-                                              IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.thumb_up),
-                                                color: Colors.black,
-                                              ),
-                                              Text(
-                                                '216',
-                                                style: TextStyle(
-                                                    color: Colors.black),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ))
-                            ],
-                          )),
-                    ),
-                    Container(
-                      width: 210,
-                      height: 400,
-                      child: Card(
-                          elevation: 2.5,
-                          color: HexColor.fromHex('#F58123'),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0)),
-                          child: Column(
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Container(
-                                  height: 200,
-                                  child: Image.network(
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRw2BVNVZD7HL4Y5JY_8RvIxfhTFynRRQSew&usqp=CAU',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 20.0),
-                              Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Ikan  Cakalang',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 28.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'RedHatTextBold',
-                                        ),
-                                      ),
-                                      Text(
-                                        'from Sulawesi Utara',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'RedHatText',
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            '30 min',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w100),
-                                          ),
-                                          Row(
-                                            children: [
-                                              IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.thumb_up),
-                                                color: Colors.white,
-                                              ),
-                                              Text(
-                                                '243',
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ))
-                            ],
-                          )),
-                    ),
-                  ],
-                )
-              ],
+          PopulerCard(),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              'Kategori Makanan',
+              style: TextStyle(
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'RedHatText',
+              ),
             ),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              height: 300,
+              decoration: new BoxDecoration(
+                border:
+                    Border(top: BorderSide(width: 1.0, color: Colors.black26)),
+              ),
+              child: GridView.count(
+                crossAxisCount: 3,
+                crossAxisSpacing: 30,
+                mainAxisSpacing: 30,
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('DKI Jakarta'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('DKI Jakarta'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('DKI Jakarta'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('DKI Jakarta'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('DKI Jakarta'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text('DKI Jakarta'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
+  }
+}
+
+class PopulerCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        height: 300,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            final TopFood tfood = topFoodData[index];
+            return Row(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return DetailFood(
+                        tfood: tfood,
+                      );
+                    }));
+                  },
+                  child: Container(
+                    width: 210,
+                    height: 300,
+                    child: Card(
+                        elevation: 2.5,
+                        color: HexColor.fromHex('#F58123'),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      height: 150,
+                                      child: Image.network(
+                                        tfood.gambar,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Positioned(
+                                        top: 5,
+                                        left: 10,
+                                        child: Card(
+                                            elevation: 10,
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(5),
+                                              child: Text(
+                                                tfood.daerah,
+                                                style: TextStyle(
+                                                    fontFamily: 'RedHatText'),
+                                              ),
+                                            )))
+                                  ],
+                                )),
+                            SizedBox(height: 5.0),
+                            Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      height: 85,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            tfood.nama,
+                                            style: TextStyle(
+                                              fontSize: 24.0,
+                                              // fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              fontFamily: 'RedHatTextBold',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          tfood.waktu,
+                                          style: TextStyle(
+                                              fontSize: 15.0,
+                                              fontWeight: FontWeight.w200,
+                                              color: Colors.white),
+                                        ),
+                                        Row(
+                                          children: [
+                                            IconButton(
+                                              onPressed: () {},
+                                              icon: Icon(Icons.thumb_up),
+                                              color: Colors.white,
+                                            ),
+                                            Text(
+                                              '216',
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ))
+                          ],
+                        )),
+                  ),
+                )
+              ],
+            );
+          },
+          itemCount: topFoodData.length,
+        ));
   }
 }
