@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
     HomeScreen(),
     Center(child: Text('add Postingan')),
     Center(child: Text('search')),
-    ProfileUser(),
+    AccountPage(),
   ];
 
   @override

@@ -1,240 +1,308 @@
 import 'package:flutter/material.dart';
-// import 'package:proto/heks_color.dart';
+import 'package:proto/utils/account_image.dart';
 
-class ProfileUser extends StatelessWidget {
+class AccountPage extends StatefulWidget {
+  @override
+  _AccountPageState createState() => _AccountPageState();
+}
+
+class _AccountPageState extends State<AccountPage> {
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.orange,
-      body: SafeArea(
-        child: Container(
-          width: 320,
-          child: ListView(
-            children: <Widget>[
-              roundedCard(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Menu yang sudah dibuat: ',
-                  textAlign: TextAlign.center,
-                ),
+      // backgroundColor: Colors.black,
+      appBar: getAppbar(),
+      body: getBody(size),
+    );
+  }
+
+  PreferredSize getAppbar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(55),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 10,
+            right: 10,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  // Icon(Icons.lock_outline, color: Colors.grey[600]),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    'shinryuu_',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-              buildCard(),
+              Row(
+                children: [
+                  IconButton(
+                    splashRadius: 20,
+                    icon: Icon(Icons.settings_rounded, color: Colors.grey[600]),
+                    onPressed: () => showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        content: const Text(
+                            'Sedang dalam pembuatan ya teman-teman ^^'),
+                        actions: <Widget>[
+                          // TextButton(
+                          //   onPressed: () => Navigator.pop(context, 'Cancel'),
+                          //   child: const Text('Ok'),
+                          // ),
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ),
     );
   }
-}
 
-Card roundedCard() {
-  return Card(
-    margin: EdgeInsets.only(left: 20, top: 80),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(24),
-    ),
-    child: Container(
-      padding: const EdgeInsets.all(12).copyWith(bottom: 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            children: [
-              Expanded(
-                  flex: 1,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100.0),
-                    child: Image.asset('images/ryujin3.jpeg'),
-                  )),
-              Expanded(
-                flex: 2,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          'Joyce Kim',
-                          style: TextStyle(fontSize: 20.0),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text('Hey guys'),
-                      Text('Selamat datang guys'),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 190.0),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.thumb_up),
-                  color: Colors.black,
-                ),
-              ),
-              Text(
-                '216',
-                style: TextStyle(color: Colors.black),
-              )
-            ],
-          )
-        ],
-      ),
-    ),
-  );
-}
-
-Card buildCard() {
-  return Card(
-    elevation: 5,
-    margin: EdgeInsets.only(left: 25),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  ListView getBody(size) {
+    return ListView(
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            left: 15,
-            top: 15,
-            bottom: 0,
-          ).copyWith(bottom: 0),
-          child: Text(
-            'Nasi goreng',
-            style: TextStyle(fontSize: 15),
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: (size.width - 20) * 0.3,
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: 95,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('images/ryujin3.jpeg'),
+                                fit: BoxFit.cover,
+                              ),
+                              shape: BoxShape.circle,
+                              border: Border.all(width: 1, color: Colors.grey)),
+                        ),
+                        // Untuk nambah icon Add story
+                        // Positioned(
+                        //   child: Container(
+                        //     height: 25,
+                        //     width: 25,
+                        //     decoration: BoxDecoration(
+                        //       shape: BoxShape.circle,
+                        //       color: Colors.blue,
+                        //       border: Border.all(width: 1, color: Colors.white),
+                        //     ),
+                        //   ),
+                        // ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: (size.width - 20) * 0.68,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "3",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Posts",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.15),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "1M",
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Followers",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.15),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
+              Text(
+                "Shin Ryujin",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text("Selamat datang teman teman di profile ku"),
+              SizedBox(height: 3),
+              Text("Aku harap kalian suka resep makanan buatanku"),
+              SizedBox(height: 3),
+              Text("Follow aku ya!"),
+              // SizedBox(height: 30),
+              // Divider(color: Colors.grey[600]),
+              // Container
+              // SizedBox
+              // Row
+            ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 15,
-            top: 15,
-            bottom: 0,
-          ).copyWith(bottom: 0),
-          child: Text(
-            'Nasi goreng',
-            style: TextStyle(fontSize: 15),
-          ),
+        SizedBox(height: 15),
+        Container(
+          height: 0.5,
+          width: size.width,
+          decoration: BoxDecoration(color: Colors.grey.withOpacity(0.8)),
         ),
         Padding(
-          padding: const EdgeInsets.only(
-            left: 15,
-            top: 15,
-            bottom: 0,
-          ).copyWith(bottom: 0),
-          child: Text(
-            'Nasi goreng',
-            style: TextStyle(fontSize: 15),
+          padding: const EdgeInsets.symmetric(vertical: 3),
+          child: Row(
+            children: [
+              Container(
+                width: (size.width * 0.55),
+                child: IconButton(
+                  splashRadius: 20,
+                  icon: Icon(Icons.book_rounded, size: 30),
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = 0;
+                    });
+                  },
+                ),
+              ),
+              Container(
+                width: (size.width * 0.3),
+                child: IconButton(
+                    splashRadius: 20,
+                    icon: Icon(Icons.bookmark_border_outlined, size: 30),
+                    onPressed: () {
+                      setState(() {
+                        selectedIndex = 1;
+                      });
+                    }),
+              ),
+              // Container(
+              //   width: (size.width * 0.35),
+              //   child: IconButton(
+              //     splashRadius: 15,
+              //     icon: Icon(Icons.table_chart_outlined, size: 30),
+              //     onPressed: () {},
+              //   ),
+              // ),
+            ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 15,
-            top: 15,
-            bottom: 0,
-          ).copyWith(bottom: 0),
-          child: Text(
-            'Nasi goreng',
-            style: TextStyle(fontSize: 15),
-          ),
+        Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: 1,
+                  width: (size.width * 0.5),
+                  decoration: BoxDecoration(
+                    color:
+                        selectedIndex == 0 ? Colors.black : Colors.transparent,
+                  ),
+                ),
+                Container(
+                  height: 1,
+                  width: (size.width * 0.5),
+                  decoration: BoxDecoration(
+                    color:
+                        selectedIndex == 1 ? Colors.black : Colors.transparent,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              height: 0.5,
+              width: size.width,
+              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.8)),
+            ),
+          ],
+        ),
+        SizedBox(height: 3),
+        IndexedStack(
+          index: selectedIndex,
+          children: [
+            getImages(size),
+            getImagesTage(size),
+          ],
         ),
       ],
-    ),
-  );
-}
+    );
+  }
 
-// Container(
-//         margin: EdgeInsets.only(left: 30, top: 80),
-//         width: 300,
-//         child: Card(
-//           shape: RoundedRectangleBorder(
-//             borderRadius: BorderRadius.circular(24),
-//           ),
-//           child: Container(
-//             decoration: BoxDecoration(
-//               color: Colors.yellow[400],
-//             ),
-//             child: Row(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: <Widget>[
-//                 Expanded(
-//                   flex: 1,
-//                   child: Image.asset('images/ryujin5.jpeg'),
-//                 ),
-//                 Expanded(
-//                   flex: 2,
-//                   child: Padding(
-//                     padding: const EdgeInsets.all(8.0),
-//                     child: Column(
-//                       crossAxisAlignment: CrossAxisAlignment.start,
-//                       mainAxisSize: MainAxisSize.min,
-//                       children: <Widget>[
-//                         Padding(
-//                           padding: const EdgeInsets.only(
-//                             left: 7,
-//                             top: 14,
-//                             bottom: 0,
-//                           ).copyWith(bottom: 0),
-//                           child: Text(
-//                             'Joyce Kim',
-//                             style: TextStyle(
-//                               fontSize: 20,
-//                               color: Colors.white,
-//                               fontWeight: FontWeight.bold,
-//                             ),
-//                           ),
-//                         ),
-//                         SizedBox(
-//                           height: 5,
-//                         ),
-//                         Padding(
-//                           padding: const EdgeInsets.only(
-//                             left: 5,
-//                             top: 5,
-//                           ).copyWith(bottom: 0),
-//                           child: Text(
-//                             'HeyHey',
-//                             style: TextStyle(
-//                               fontSize: 15,
-//                               fontWeight: FontWeight.bold,
-//                               color: Colors.white,
-//                             ),
-//                           ),
-//                         ),
-//                         Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                           children: [
-//                             Padding(
-//                               padding: const EdgeInsets.only(left: 95),
-//                               child: Row(
-//                                 children: [
-//                                   IconButton(
-//                                     onPressed: () {},
-//                                     icon: Icon(Icons.thumb_up),
-//                                     color: Colors.white,
-//                                   ),
-//                                   Text(
-//                                     '216',
-//                                     style: TextStyle(color: Colors.white),
-//                                   )
-//                                 ],
-//                               ),
-//                             )
-//                           ],
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
+  Wrap getImages(size) {
+    return Wrap(
+      direction: Axis.horizontal,
+      spacing: 3,
+      runSpacing: 3,
+      children: List.generate(images.length, (index) {
+        return Container(
+          height: 150,
+          width: (size.width - 6) / 3,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(images[index]),
+              fit: BoxFit.cover,
+            ),
+          ),
+        );
+      }),
+    );
+  }
+
+  Wrap getImagesTage(size) {
+    return Wrap(
+      direction: Axis.horizontal,
+      spacing: 3,
+      runSpacing: 3,
+      children: List.generate(imageTags.length, (index) {
+        return Container(
+          height: 150,
+          width: (size.width - 6) / 3,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(imageTags[index]),
+              fit: BoxFit.cover,
+            ),
+          ),
+        );
+      }),
+    );
+  }
+}
