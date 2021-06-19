@@ -1,10 +1,11 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
 
 import 'package:proto/profile_user.dart';
 
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
+// import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,24 +42,34 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: HexColor.fromHex('#F99B2A'),
+        backgroundColor: Colors.orange.shade100,
         body: SafeArea(
           child: _pageOptions[currentPage],
         ),
-        bottomNavigationBar: FancyBottomNavigation(
-          barBackgroundColor: HexColor.fromHex('#F58123'),
-          circleColor: Colors.white,
-          activeIconColor: HexColor.fromHex('#F58123'),
-          inactiveIconColor: Colors.black38,
-          tabs: [
-            TabData(iconData: Icons.home, title: ""),
-            TabData(iconData: Icons.add, title: ""),
-            TabData(iconData: Icons.search, title: ""),
-            TabData(iconData: Icons.person, title: ""),
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: HexColor.fromHex('#F58123'),
+          animationDuration: Duration(milliseconds: 500),
+          items: <Widget>[
+            Icon(
+              Icons.home,
+              size: 30,
+            ),
+            Icon(
+              Icons.add,
+              size: 30,
+            ),
+            Icon(
+              Icons.search,
+              size: 30,
+            ),
+            Icon(
+              Icons.person,
+              size: 30,
+            ),
           ],
-          onTabChangedListener: (position) {
+          onTap: (index) {
             setState(() {
-              currentPage = position;
+              currentPage = index;
             });
           },
         ));

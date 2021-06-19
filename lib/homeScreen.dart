@@ -216,7 +216,7 @@ class PopulerCard extends StatelessWidget {
                     height: 300,
                     child: Card(
                         elevation: 2.5,
-                        color: HexColor.fromHex('#F58123'),
+                        color: Colors.orange.shade400,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0)),
                         child: Column(
