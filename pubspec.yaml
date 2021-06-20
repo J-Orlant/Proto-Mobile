@@ -27,6 +27,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   # fancy_bottom_navigation: ^0.3.2
   curved_navigation_bar: ^1.0.0   
+  flutter_native_splash: ^1.2.0
   # flutter_native_splash: ^1.2.0
 
 flutter_native_splash:
