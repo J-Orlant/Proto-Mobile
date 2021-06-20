@@ -4,6 +4,7 @@ import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
 
 import 'package:proto/profile_user.dart';
+import 'package:proto/searchScreen.dart';
 
 // import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 
@@ -35,14 +36,15 @@ class _HomePageState extends State<HomePage> {
   final _pageOptions = [
     HomeScreen(),
     Center(child: Text('add Postingan')),
-    Center(child: Text('search')),
+    Center(child: Text('Search')),
+    // SearchScreen(),
     AccountPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.orange.shade100,
+        backgroundColor: const Color(0xfff3f3f3),
         body: SafeArea(
           child: _pageOptions[currentPage],
         ),
