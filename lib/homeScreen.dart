@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
     fontSize: 25.0,
     fontWeight: FontWeight.bold,
     fontFamily: 'RedHatText',
+    color: Colors.black,
   );
 
   @override
@@ -37,153 +38,224 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+          /** Bagian Pupler Card */
+
+          Card(
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
               children: [
-                Text(
-                  'Makanan Terpopuler Minggu Ini',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'RedHatText',
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Makanan Terpopuler Minggu Ini',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'RedHatText',
+                        ),
+                      ),
+                      Text(
+                        'Lihat Semua',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Text(
-                  'Lihat Semua',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w100,
-                  ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                PopulerCard(),
+                SizedBox(
+                  height: 20,
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: 15.0,
+            height: 10,
           ),
-          PopulerCard(),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              'Kategori Makanan',
-              style: TextStyle(
-                fontSize: 15.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'RedHatText',
-              ),
+
+          /** Bagian Kategori */
+          Card(
+            color: const Color(0xfff3f3f3),
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              height: 300,
-              decoration: new BoxDecoration(
-                border:
-                    Border(top: BorderSide(width: 1.0, color: Colors.black26)),
-              ),
-              child: GridView.count(
-                crossAxisCount: 3,
-                crossAxisSpacing: 30,
-                mainAxisSpacing: 30,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 20,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Kategori Makanan',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'RedHatText',
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text('DKI Jakarta'),
-                    ],
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.double_arrow),
+                        )
+                      ],
+                    )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: Colors.white,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 15,
+                    ),
+                    height: 250,
+                    decoration: new BoxDecoration(
+                      border: Border(
+                          top: BorderSide(width: 1.0, color: Colors.black26)),
+                    ),
+                    child: GridView.count(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 30,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Jawa',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text('DKI Jakarta'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: Colors.white,
+                        Column(
+                          children: [
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Sumatra',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text('DKI Jakarta'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: Colors.white,
+                        Column(
+                          children: [
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Kalimantan',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text('DKI Jakarta'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: Colors.white,
+                        Column(
+                          children: [
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Sulawesi',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text('DKI Jakarta'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(80),
-                          color: Colors.white,
+                        Column(
+                          children: [
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Bali',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 5),
-                      Text('DKI Jakarta'),
-                    ],
+                        Column(
+                          children: [
+                            Container(
+                              width: 44,
+                              height: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              'Lihat Semua',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );
@@ -213,7 +285,7 @@ class PopulerCard extends StatelessWidget {
                   },
                   child: Container(
                     width: 210,
-                    height: 300,
+                    height: 270,
                     child: Card(
                         elevation: 2.5,
                         color: HexColor.fromHex('#F58123'),
@@ -258,7 +330,7 @@ class PopulerCard extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      height: 85,
+                                      height: 50,
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
