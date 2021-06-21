@@ -36,8 +36,8 @@ class _HomePageState extends State<HomePage> {
   final _pageOptions = [
     HomeScreen(),
     Center(child: Text('add Postingan')),
-    Center(child: Text('Search')),
-    // SearchScreen(),
+    // Center(child: Text('Search')),
+    SearchScreen(),
     AccountPage(),
   ];
 
