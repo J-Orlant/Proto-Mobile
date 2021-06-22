@@ -57,15 +57,45 @@ class DetailFood extends StatelessWidget {
                 ),
                 Padding(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        tfood.nama,
-                      ),
-                    ],
+                      EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+                  child: Card(
+                    child: Container(
+                        width: 500,
+                        height: 450,
+                        child: ListView(
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 10,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Resep Makanan',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      fontFamily: 'RedHatText',
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border(
+                                        top: BorderSide(
+                                            width: 1, color: Colors.black26),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        )),
                   ),
                 ),
               ],

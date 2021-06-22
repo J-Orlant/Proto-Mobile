@@ -5,6 +5,7 @@ class TopFood {
   String waktu;
   List<String> bahan;
   List jumlahBahan;
+  List Resep;
 
   TopFood({
     required this.gambar,
@@ -13,6 +14,7 @@ class TopFood {
     required this.waktu,
     required this.bahan,
     required this.jumlahBahan,
+    required this.Resep,
   });
 }
 
@@ -41,6 +43,13 @@ var topFoodData = [
       'Secukupnya',
       'Secukupnya',
     ],
+    Resep: [
+      'Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
+      'Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
+      'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
+      'Kukus kembali nasi selama 45 menit',
+      'Sajikan bersama dengan pelengkap.',
+    ],
   ),
   TopFood(
     gambar:
@@ -66,6 +75,13 @@ var topFoodData = [
       'Secukupnya',
       'Secukupnya',
     ],
+    Resep: [
+      'Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
+      'Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
+      'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
+      'Kukus kembali nasi selama 45 menit',
+      'Sajikan bersama dengan pelengkap.',
+    ],
   ),
   TopFood(
     gambar:
@@ -90,6 +106,13 @@ var topFoodData = [
       2,
       'Secukupnya',
       'Secukupnya',
+    ],
+    Resep: [
+      'Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
+      'Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
+      'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
+      'Kukus kembali nasi selama 45 menit',
+      'Sajikan bersama dengan pelengkap.',
     ],
   ),
 ];
