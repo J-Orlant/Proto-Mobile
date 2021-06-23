@@ -24,7 +24,7 @@ var topFoodData = [
         'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg',
     nama: 'Nasi Uduk',
     daerah: 'Jakarta',
-    waktu: '20 - 30 min',
+    waktu: '20 - 30 menit',
     bahan: [
       'Beras',
       'Santan kental',
@@ -44,11 +44,11 @@ var topFoodData = [
       'Secukupnya',
     ],
     Resep: [
-      'Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
-      'Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
-      'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
-      'Kukus kembali nasi selama 45 menit',
-      'Sajikan bersama dengan pelengkap.',
+      '1. Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
+      '2. Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
+      '3. Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
+      '4. Kukus kembali nasi selama 45 menit',
+      '5. Sajikan bersama dengan pelengkap.',
     ],
   ),
   TopFood(
@@ -56,7 +56,7 @@ var topFoodData = [
         'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:good,w_640,ar_16:9/v1566898918/jwgiwgsirs5vwzbobopu.jpg',
     nama: 'Gudeg Jawa',
     daerah: 'Jawa',
-    waktu: '1 hours',
+    waktu: '1 jam',
     bahan: [
       'Beras',
       'Santan kental',
@@ -88,7 +88,7 @@ var topFoodData = [
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRw2BVNVZD7HL4Y5JY_8RvIxfhTFynRRQSew&usqp=CAU',
     nama: 'Ikan Cakalang',
     daerah: 'Sulawesi Utara',
-    waktu: '30 min',
+    waktu: '30 menit',
     bahan: [
       'Beras',
       'Santan kental',

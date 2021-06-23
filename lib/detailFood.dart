@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:proto/heks_color.dart';
 import 'package:proto/model/TopFood_data.dart';
 
 class DetailFood extends StatelessWidget {
@@ -78,17 +77,37 @@ class DetailFood extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 25,
                                       fontFamily: 'RedHatText',
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   SizedBox(
                                     height: 10,
                                   ),
                                   Container(
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: 20,
+                                    ),
+                                    width: 400,
+                                    height: 400,
                                     decoration: BoxDecoration(
                                       border: Border(
                                         top: BorderSide(
-                                            width: 1, color: Colors.black26),
+                                          width: 1,
+                                          color: Colors.black26,
+                                        ),
                                       ),
+                                    ),
+                                    child: ListView(
+                                      children: [
+                                        Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: tfood.Resep.map((r) {
+                                              return Text(
+                                                '$r',
+                                              );
+                                            }).toList())
+                                      ],
                                     ),
                                   )
                                 ],
@@ -145,17 +164,19 @@ class DetailFood extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.analytics,
+                                  Icons.flag,
                                   size: 35,
+                                  color: Colors.greenAccent,
                                 ),
                                 SizedBox(
                                   height: 5.0,
                                 ),
                                 Text(
-                                  'Easy',
+                                  'Mudah',
                                   style: TextStyle(
                                     fontFamily: 'RedHatText',
                                     fontSize: 18,
+                                    color: Colors.greenAccent,
                                   ),
                                 )
                               ],
@@ -183,8 +204,9 @@ class DetailFood extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.star_border,
+                                  Icons.star_half,
                                   size: 35,
+                                  color: Colors.yellow,
                                 ),
                                 SizedBox(
                                   height: 5.0,
@@ -194,6 +216,7 @@ class DetailFood extends StatelessWidget {
                                   style: TextStyle(
                                     fontFamily: 'RedHatText',
                                     fontSize: 18,
+                                    color: Colors.yellow,
                                   ),
                                 )
                               ],
