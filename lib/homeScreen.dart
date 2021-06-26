@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:proto/detailFood.dart';
 import 'package:proto/heks_color.dart';
+import 'package:proto/kategoriMakanan.dart';
 import 'package:proto/model/TopFood_data.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -117,7 +118,12 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return KategoriMakanan();
+                            }));
+                          },
                           icon: Icon(Icons.double_arrow),
                         )
                       ],
@@ -128,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
+                      horizontal: 10,
                       vertical: 15,
                     ),
                     height: 250,
@@ -148,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                               height: 44,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey,
+                                color: Colors.orange.shade100,
                               ),
                             ),
                             SizedBox(height: 5),
@@ -166,12 +172,12 @@ class HomeScreen extends StatelessWidget {
                               height: 44,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey,
+                                color: Colors.orange.shade100,
                               ),
                             ),
                             SizedBox(height: 5),
                             Text(
-                              'Sumatra',
+                              'Sumatera Utara',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 12),
                             ),
@@ -184,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                               height: 44,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey,
+                                color: Colors.orange.shade100,
                               ),
                             ),
                             SizedBox(height: 5),
@@ -202,12 +208,12 @@ class HomeScreen extends StatelessWidget {
                               height: 44,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey,
+                                color: Colors.orange.shade100,
                               ),
                             ),
                             SizedBox(height: 5),
                             Text(
-                              'Sulawesi',
+                              'Sulawesi Utara',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 12),
                             ),
@@ -220,7 +226,7 @@ class HomeScreen extends StatelessWidget {
                               height: 44,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey,
+                                color: Colors.orange.shade100,
                               ),
                             ),
                             SizedBox(height: 5),
@@ -238,12 +244,12 @@ class HomeScreen extends StatelessWidget {
                               height: 44,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
-                                color: Colors.grey,
+                                color: Colors.orange.shade100,
                               ),
                             ),
                             SizedBox(height: 5),
                             Text(
-                              'Lihat Semua',
+                              'Papua',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 12),
                             ),

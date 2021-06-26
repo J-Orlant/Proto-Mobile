@@ -7,7 +7,9 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        padding: const EdgeInsets.symmetric(
+          vertical: 20,
+        ),
         child: Column(
           children: [
             Padding(
@@ -27,87 +29,152 @@ class SearchScreen extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            InkWell(
-              child: Container(
-                width: 400,
-                height: 150,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Row(
-                    children: [
-                      Stack(children: [
-                        Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            width: 150,
-                            height: 150,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
-                                "https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg",
-                                fit: BoxFit.cover,
-                              ),
-                            )),
-                        Positioned(
-                            top: 5,
-                            left: 10,
-                            child: Card(
-                                elevation: 10,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5),
-                                  child: Text(
-                                    "DKI Jakarta",
-                                    style: TextStyle(fontFamily: 'RedHatText'),
-                                  ),
-                                )))
-                      ]),
-                      Container(
-                        child: Column(
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  final TopFood tfood = topFoodData[index];
+                  return InkWell(
+                    child: Container(
+                      width: 400,
+                      height: 150,
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Row(
                           children: [
-                            Container(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 10.0, horizontal: 15.0),
-                                child: Text(
-                                  "Nasi Uduk",
-                                  style: TextStyle(
-                                    fontSize: 23.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'RedHatText',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                                child: Row(
+                            Stack(
                               children: [
                                 Container(
-                                  width: 40,
-                                  child: Text("5,6K"),
-                                ),
-                                Container(width: 40, child: Text("6,7K")),
-                                Container(width: 40, child: Text("4,7"))
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    width: 150,
+                                    height: 150,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(20),
+                                        topLeft: Radius.circular(20),
+                                      ),
+                                      child: Image.network(
+                                        tfood.gambar,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )),
+                                Positioned(
+                                    top: 5,
+                                    left: 10,
+                                    child: Card(
+                                        elevation: 10,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5),
+                                          child: Text(
+                                            tfood.daerah,
+                                            style: TextStyle(
+                                                fontFamily: 'RedHatText'),
+                                          ),
+                                        )))
                               ],
-                            )),
-                            Container(
-                                child: Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 45.0, left: 30.0),
-                                    child: Text("17 detik Ago",
-                                        style: TextStyle(
-                                            fontSize: 13.0,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: 'RedHatText',
-                                            color:
-                                                HexColor.fromHex('#ababab')))))
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 10),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            tfood.nama,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontSize: 30,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.thumb_up,
+                                                    size: 20,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 2,
+                                                  ),
+                                                  Text('312'),
+                                                ],
+                                              ),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.message,
+                                                    size: 20,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 2,
+                                                  ),
+                                                  Text('200'),
+                                                ],
+                                              ),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.share_outlined,
+                                                    size: 20,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 2,
+                                                  ),
+                                                  Text('324'),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Text(
+                                      '17 menit lalu',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: Colors.black12,
+                                        fontSize: 15,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: topFoodData.length,
               ),
             )
           ],
