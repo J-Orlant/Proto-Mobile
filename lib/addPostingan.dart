@@ -2,8 +2,6 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter_file_manager/flutter_file_manager.dart';
-import 'package:path_provider_ex/path_provider_ex.dart';
 
 class AddPostingan extends StatefulWidget {
   @override
@@ -127,7 +125,6 @@ class _AddPostinganState extends State<AddPostingan> {
                                 borderRadius: BorderRadius.circular(5)),
                           ),
                         ),
-                        ImageList(),
                       ],
                     ),
                   );
@@ -136,54 +133,5 @@ class _AddPostinganState extends State<AddPostingan> {
             )
           ],
         ));
-  }
-}
-
-class ImageList extends StatefulWidget {
-  @override
-  _ImageListState createState() => _ImageListState();
-}
-
-class _ImageListState extends State<ImageList> {
-  var files;
-
-  @override
-  void getFiles() async {
-    List StorageInfo = await PathProviderEx.getStorageInfo();
-    var root = StorageInfo[0].rootDir;
-    var fm = FileManager(root: Directory(root));
-    files = await fm.filesTree(
-      excludedPaths: ["/storage/emulated/0/Android"],
-      extensions: ["png", "jpg"],
-    );
-    setState(() {});
-  }
-
-  @override
-  void iniState() {
-    getFiles();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: files == null
-          ? CircularProgressIndicator()
-          : ListView.builder(
-              itemCount: files?.length ?? 0,
-              itemBuilder: (context, index) {
-                return Card(
-                    child: ListTile(
-                  title: Text(files[index].path.split('/').last),
-                  leading: Icon(Icons.image),
-                  trailing: Icon(
-                    Icons.delete,
-                    color: Colors.redAccent,
-                  ),
-                ));
-              },
-            ),
-    );
   }
 }
