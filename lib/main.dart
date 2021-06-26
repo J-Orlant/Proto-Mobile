@@ -1,9 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:proto/addPostingan.dart';
 import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
 import 'package:proto/loginScreen.dart';
-
 import 'package:proto/profile_user.dart';
 import 'package:proto/searchScreen.dart';
 
@@ -36,7 +36,8 @@ class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   final _pageOptions = [
     HomeScreen(),
-    Center(child: Text('add Postingan')),
+    AddPostingan(),
+    // Center(child: Text('add Postingan')),
     // Center(child: Text('Search')),
     SearchScreen(),
     AccountPage(),
