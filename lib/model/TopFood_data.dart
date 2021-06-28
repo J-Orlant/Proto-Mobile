@@ -44,11 +44,11 @@ var topFoodData = [
       'Secukupnya',
     ],
     Resep: [
-      '1. Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
-      '2. Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
-      '3. Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
-      '4. Kukus kembali nasi selama 45 menit',
-      '5. Sajikan bersama dengan pelengkap.',
+      'Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
+      'Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
+      'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
+      'Kukus kembali nasi selama 45 menit',
+      'Sajikan bersama dengan pelengkap.',
     ],
   ),
   TopFood(

@@ -98,16 +98,12 @@ class DetailFood extends StatelessWidget {
                                       ),
                                     ),
                                     child: ListView(
-                                      children: [
-                                        Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: tfood.Resep.map((r) {
-                                              return Text(
-                                                '$r',
-                                              );
-                                            }).toList())
-                                      ],
+                                      children: tfood.Resep.map((r) {
+                                        return ListTile(
+                                          leading: Icon(Icons.arrow_right),
+                                          title: Text('$r'),
+                                        );
+                                      }).toList(),
                                     ),
                                   )
                                 ],

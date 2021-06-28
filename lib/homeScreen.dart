@@ -3,6 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:proto/detailFood.dart';
 import 'package:proto/kategoriMakanan.dart';
 import 'package:proto/model/TopFood_data.dart';
+import 'package:proto/model/pengguna_data.dart';
+import 'package:proto/userProfile.dart';
 
 class HomeScreen extends StatelessWidget {
   final styleJudul = TextStyle(
@@ -23,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             Positioned(
               child: Container(
                 width: width,
-                height: height + 200,
+                height: height + 125,
                 color: Colors.orange.shade200,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
@@ -104,53 +106,7 @@ class HomeScreen extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    Text(
-                      'Rekomendasi Pengguna',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'RedHatText',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      width: width,
-                      height: height / 4,
-                      child: ListView(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(50),
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 7,
-                                    ),
-                                    Text(
-                                      'Bang Hajime',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    )
+                    RekomendasiPengguna(),
                   ],
                 ),
               ),
@@ -459,6 +415,93 @@ class KateMakanan extends StatelessWidget {
               ],
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class RekomendasiPengguna extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Rekomendasi Pengguna',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'RedHatText',
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+              width: width,
+              height: height / 4,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  final Pengguna pg = rekomendasiPengguna[index];
+                  return Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return UserProfile(pg: pg);
+                          }));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 20),
+                          child: Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      color: Colors.grey,
+                                      image: DecorationImage(
+                                        image: NetworkImage(pg.gambar),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    child: Icon(
+                                      Icons.verified,
+                                      color: Colors.blue,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 7,
+                              ),
+                              Text(
+                                pg.nama,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+                itemCount: rekomendasiPengguna.length,
+              )),
         ],
       ),
     );
