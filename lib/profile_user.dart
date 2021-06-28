@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proto/detailFood.dart';
+import 'package:proto/model/TopFood_data.dart';
 import 'package:proto/utils/account_image.dart';
 
 class AccountPage extends StatefulWidget {
@@ -7,68 +9,184 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      // backgroundColor: Colors.black,
-      appBar: getAppbar(),
-      body: getBody(size),
-    );
-  }
-
-  PreferredSize getAppbar() {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(55),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 10,
-            right: 10,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      backgroundColor: Colors.orange.shade100,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Stack(
             children: [
-              Row(
-                children: [
-                  // Icon(Icons.lock_outline, color: Colors.grey[600]),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'shinryuu_',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  IconButton(
-                    splashRadius: 20,
-                    icon: Icon(Icons.settings_rounded, color: Colors.grey[600]),
-                    onPressed: () => showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        content: const Text(
-                            'Sedang dalam pembuatan ya teman-teman ^^'),
-                        actions: <Widget>[
-                          // TextButton(
-                          //   onPressed: () => Navigator.pop(context, 'Cancel'),
-                          //   child: const Text('Ok'),
-                          // ),
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, 'OK'),
-                            child: const Text('OK'),
-                          ),
-                        ],
+              Positioned(
+                child: Stack(
+                  children: [
+                    Positioned(
+                      child: Container(
+                        width: width,
+                        height: width,
                       ),
                     ),
+                    Container(
+                        alignment: Alignment.topRight,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 20,
+                        ),
+                        width: width,
+                        height: height - 100,
+                        color: Colors.orange.shade100,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                              ),
+                            ),
+                            Positioned(
+                              child: Container(
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.notifications,
+                                    color: Colors.orange.shade300,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              right: 3,
+                              child: Container(
+                                width: 20,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: Colors.red.shade400,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '1',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )),
+                    Positioned(
+                      top: -100,
+                      left: 0,
+                      child: Container(
+                        width: 300,
+                        height: 300,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                          image: AssetImage('images/bg_belakang.png'),
+                        )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 150,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  width: width,
+                  height: height - 150,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
                   ),
-                ],
+                  child: Column(
+                    children: [
+                      Container(
+                          alignment: Alignment.topRight,
+                          child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: IconButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20),
+                                      )),
+                                      context: context,
+                                      builder: (context) {
+                                        return Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              margin: EdgeInsets.only(top: 15),
+                                              width: 40,
+                                              height: 10,
+                                              decoration: BoxDecoration(
+                                                color: Colors.black12,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                            ),
+                                            ListTile(
+                                              leading: new Icon(Icons.settings),
+                                              title: new Text('Settings'),
+                                            ),
+                                            ListTile(
+                                              leading: new Icon(Icons.bookmark),
+                                              title: new Text('Favorit'),
+                                            ),
+                                            ListTile(
+                                              leading: new Icon(
+                                                  Icons.qr_code_outlined),
+                                              title: new Text('QR Code'),
+                                            ),
+                                          ],
+                                        );
+                                      });
+                                },
+                                icon: Icon(
+                                  Icons.more_horiz,
+                                  color: Colors.orange.shade600,
+                                  size: 30,
+                                ),
+                              ))),
+                      SizedBox(height: width / 50),
+                      BioData(),
+                      SizedBox(height: 30),
+                      Postingan(),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 100,
+                left: width / 2.8,
+                right: width / 2.8,
+                child: Container(
+                  width: width / 4,
+                  height: width / 4 + 20,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                      image: AssetImage('images/ryujin3.jpeg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -76,233 +194,183 @@ class _AccountPageState extends State<AccountPage> {
       ),
     );
   }
+}
 
-  ListView getBody(size) {
-    return ListView(
+class BioData extends StatefulWidget {
+  @override
+  _BioDataState createState() => _BioDataState();
+}
+
+class _BioDataState extends State<BioData> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: (size.width - 20) * 0.3,
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 95,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('images/ryujin3.jpeg'),
-                                fit: BoxFit.cover,
-                              ),
-                              shape: BoxShape.circle,
-                              border: Border.all(width: 1, color: Colors.grey)),
-                        ),
-                        // Untuk nambah icon Add story
-                        // Positioned(
-                        //   child: Container(
-                        //     height: 25,
-                        //     width: 25,
-                        //     decoration: BoxDecoration(
-                        //       shape: BoxShape.circle,
-                        //       color: Colors.blue,
-                        //       border: Border.all(width: 1, color: Colors.white),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: (size.width - 20) * 0.68,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              "3",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Posts",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1.15),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              "1M",
-                              style: TextStyle(
-                                  fontSize: 19, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "Followers",
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1.15),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Text(
-                "Shin Ryujin",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
-              ),
-              SizedBox(height: 8),
-              Text("Selamat datang teman teman di profile ku"),
-              SizedBox(height: 3),
-              Text("Aku harap kalian suka resep makanan buatanku"),
-              SizedBox(height: 3),
-              Text("Follow aku ya!"),
-              // SizedBox(height: 30),
-              // Divider(color: Colors.grey[600]),
-              // Container
-              // SizedBox
-              // Row
-            ],
+        Text(
+          'Ryujin',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 15),
-        Container(
-          height: 0.5,
-          width: size.width,
-          decoration: BoxDecoration(color: Colors.grey.withOpacity(0.8)),
+        SizedBox(
+          height: 5,
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 3),
-          child: Row(
-            children: [
-              Container(
-                width: (size.width * 0.55),
-                child: IconButton(
-                  splashRadius: 20,
-                  icon: Icon(Icons.book_rounded, size: 30),
-                  onPressed: () {
-                    setState(() {
-                      selectedIndex = 0;
-                    });
-                  },
-                ),
-              ),
-              Container(
-                width: (size.width * 0.3),
-                child: IconButton(
-                    splashRadius: 20,
-                    icon: Icon(Icons.bookmark_border_outlined, size: 30),
-                    onPressed: () {
-                      setState(() {
-                        selectedIndex = 1;
-                      });
-                    }),
-              ),
-              // Container(
-              //   width: (size.width * 0.35),
-              //   child: IconButton(
-              //     splashRadius: 15,
-              //     icon: Icon(Icons.table_chart_outlined, size: 30),
-              //     onPressed: () {},
-              //   ),
-              // ),
-            ],
+        Text(
+          'Jawa Barat, Bandung',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black26,
           ),
         ),
-        Column(
+        SizedBox(
+          height: 15,
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  height: 1,
-                  width: (size.width * 0.5),
-                  decoration: BoxDecoration(
-                    color:
-                        selectedIndex == 0 ? Colors.black : Colors.transparent,
+                Text(
+                  '1,206',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black38,
                   ),
                 ),
-                Container(
-                  height: 1,
-                  width: (size.width * 0.5),
-                  decoration: BoxDecoration(
-                    color:
-                        selectedIndex == 1 ? Colors.black : Colors.transparent,
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'Pengikut',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black38,
                   ),
                 ),
               ],
             ),
-            Container(
-              height: 0.5,
-              width: size.width,
-              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.8)),
+            SizedBox(
+              width: 30,
             ),
-          ],
-        ),
-        SizedBox(height: 3),
-        IndexedStack(
-          index: selectedIndex,
-          children: [
-            getImages(size),
-            getImagesTage(size),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  '40',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black38,
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'Postingan',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black38,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ],
     );
   }
+}
 
-  Wrap getImages(size) {
-    return Wrap(
-      direction: Axis.horizontal,
-      spacing: 3,
-      runSpacing: 3,
-      children: List.generate(images.length, (index) {
-        return Container(
-          height: 150,
-          width: (size.width - 6) / 3,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(images[index]),
-              fit: BoxFit.cover,
-            ),
-          ),
-        );
-      }),
-    );
-  }
+class Postingan extends StatefulWidget {
+  @override
+  _PostinganState createState() => _PostinganState();
+}
 
-  Wrap getImagesTage(size) {
-    return Wrap(
-      direction: Axis.horizontal,
-      spacing: 3,
-      runSpacing: 3,
-      children: List.generate(imageTags.length, (index) {
-        return Container(
-          height: 150,
-          width: (size.width - 6) / 3,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(imageTags[index]),
-              fit: BoxFit.cover,
-            ),
+class _PostinganState extends State<Postingan> {
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      height: 270,
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Postingan',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  // color: Colors.black54,
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  'Lihat Semua',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black26,
+                  ),
+                ),
+              )
+            ],
           ),
-        );
-      }),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 180,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final TopFood tfood = topFoodData[index];
+                return Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailFood(tfood: tfood);
+                        }));
+                      },
+                      child: Container(
+                        width: width - 100,
+                        height: width - 200,
+                        margin: EdgeInsets.only(
+                          right: 20,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              tfood.gambar,
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                );
+              },
+              itemCount: topFoodData.length,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
