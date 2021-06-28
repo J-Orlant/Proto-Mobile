@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     AddPostingan(),
     // Center(child: Text('add Postingan')),
     // Center(child: Text('Search')),
-    SearchScreen(),
+    SearchPage(),
     AccountPage(),
   ];
 
