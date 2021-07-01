@@ -7,6 +7,7 @@ class TopFood {
   List gambarBahan;
   List jumlahBahan;
   List Resep;
+  List gambarBanner;
 
   TopFood({
     required this.gambar,
@@ -17,6 +18,7 @@ class TopFood {
     required this.gambarBahan,
     required this.jumlahBahan,
     required this.Resep,
+    required this.gambarBanner,
   });
 }
 
@@ -61,6 +63,11 @@ var topFoodData = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZKSlhGLml4iia9CZaQv60BhxF-o6HNbRlw&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9hbTH25VLWloyOnH8z17reRk4c184GzE4Q&usqp=CAU',
     ],
+    gambarBanner: [
+      'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg',
+      'https://asset.kompas.com/crops/gbmG_rSPvjMvwT8KeYilWzAfOUI=/0x0:1000x667/750x500/data/photo/2021/02/21/6032066dc88e0.jpg',
+      'https://asset.kompas.com/crops/z4FKlniytutq5RHVVr0pwN0gkFA=/102x41:957x610/750x500/data/photo/2021/02/21/6031fe29cdef2.jpg',
+    ],
   ),
   TopFood(
     gambar:
@@ -102,6 +109,11 @@ var topFoodData = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZKSlhGLml4iia9CZaQv60BhxF-o6HNbRlw&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9hbTH25VLWloyOnH8z17reRk4c184GzE4Q&usqp=CAU',
     ],
+    gambarBanner: [
+      'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg',
+      'https://asset.kompas.com/crops/gbmG_rSPvjMvwT8KeYilWzAfOUI=/0x0:1000x667/750x500/data/photo/2021/02/21/6032066dc88e0.jpg',
+      'https://asset.kompas.com/crops/z4FKlniytutq5RHVVr0pwN0gkFA=/102x41:957x610/750x500/data/photo/2021/02/21/6031fe29cdef2.jpg',
+    ],
   ),
   TopFood(
     gambar:
@@ -142,6 +154,11 @@ var topFoodData = [
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmDkZtbsIXPOTKwxAFd_jKhol5KmxWGJlVqQ&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZKSlhGLml4iia9CZaQv60BhxF-o6HNbRlw&usqp=CAU',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9hbTH25VLWloyOnH8z17reRk4c184GzE4Q&usqp=CAU',
+    ],
+    gambarBanner: [
+      'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg',
+      'https://asset.kompas.com/crops/gbmG_rSPvjMvwT8KeYilWzAfOUI=/0x0:1000x667/750x500/data/photo/2021/02/21/6032066dc88e0.jpg',
+      'https://asset.kompas.com/crops/z4FKlniytutq5RHVVr0pwN0gkFA=/102x41:957x610/750x500/data/photo/2021/02/21/6031fe29cdef2.jpg',
     ],
   ),
 ];
