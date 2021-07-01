@@ -81,86 +81,69 @@ class CardPost extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [shadowColor],
               ),
-            ),
-          ),
-          // Bagian Gambar
-          // Bantu disini coek aawokawokawokaw
-          Positioned(
-            right: 0,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              height: 150,
-              width: 180,
-              child: Image.network(
-                topfood.gambar,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: SizedBox(
-              height: 136,
-              width: size.width - 200,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.only(top: 5),
-                          child: Text(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 12,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             topfood.nama,
                             style: TextStyle(fontSize: 20),
                           ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(top: 5),
-                          child: Text(
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
                             topfood.daerah,
                             style: TextStyle(fontSize: 17),
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              FavoriteButton(),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Icon(
+                                Icons.share_outlined,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                  Spacer(),
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                            // color: Colors.orange.shade800,
-                            ),
-                        // Ini icon ada di paling bawah coek
-                        child: FavoriteButton(),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    width: 160,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(topfood.gambar),
+                        fit: BoxFit.cover,
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          // vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                            // color: Colors.orange.shade800,
-                            ),
-                        child: Icon(
-                          Icons.share_outlined,
-                        ),
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
             ),
           ),
+          // Bagian Gambar
+          // Bantu disini coek aawokawokawokaw
         ],
       ),
     );

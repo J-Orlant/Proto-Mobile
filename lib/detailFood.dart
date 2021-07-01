@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:proto/model/TopFood_data.dart';
 
@@ -8,6 +9,7 @@ class DetailFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.orange.shade300,
         body: SafeArea(
@@ -18,7 +20,7 @@ class DetailFood extends StatelessWidget {
                 Stack(
                   children: [
                     Container(
-                      width: 500,
+                      width: width,
                       child: Image.network(
                         tfood.gambar,
                         fit: BoxFit.cover,
@@ -54,65 +56,10 @@ class DetailFood extends StatelessWidget {
                     )
                   ],
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
-                  child: Card(
-                    child: Container(
-                        width: 500,
-                        height: 450,
-                        child: ListView(
-                          scrollDirection: Axis.vertical,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 10,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Resep Makanan',
-                                    style: TextStyle(
-                                      fontSize: 25,
-                                      fontFamily: 'RedHatText',
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                      vertical: 20,
-                                    ),
-                                    width: 400,
-                                    height: 400,
-                                    decoration: BoxDecoration(
-                                      border: Border(
-                                        top: BorderSide(
-                                          width: 1,
-                                          color: Colors.black26,
-                                        ),
-                                      ),
-                                    ),
-                                    child: ListView(
-                                      children: tfood.Resep.map((r) {
-                                        return ListTile(
-                                          leading: Icon(Icons.arrow_right),
-                                          title: Text('$r'),
-                                        );
-                                      }).toList(),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        )),
-                  ),
+                SizedBox(
+                  height: 30,
                 ),
+                Resep(tfood: tfood),
               ],
             ),
             SizedBox.expand(
@@ -368,6 +315,9 @@ class BahanLoop extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Column(
       children: tfood.bahan.map((e) {
+        var index = tfood.bahan.indexOf(e);
+        var jumlah = tfood.jumlahBahan[index];
+        // var gambar = tfood.gambarBahan[index];
         return Column(
           children: [
             Row(
@@ -381,7 +331,11 @@ class BahanLoop extends StatelessWidget {
                       height: 50,
                       decoration: BoxDecoration(
                           color: Colors.grey,
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: NetworkImage(tfood.gambarBahan[index]),
+                            fit: BoxFit.cover,
+                          )),
                     ),
                     SizedBox(
                       width: 15,
@@ -395,7 +349,7 @@ class BahanLoop extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '1lt',
+                  '$jumlah',
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -408,6 +362,199 @@ class BahanLoop extends StatelessWidget {
           ],
         );
       }).toList(),
+    );
+  }
+}
+
+class Resep extends StatefulWidget {
+  final TopFood tfood;
+
+  const Resep({Key? key, required this.tfood}) : super(key: key);
+  @override
+  _ResepState createState() => _ResepState();
+}
+
+class _ResepState extends State<Resep> {
+  int _currentIndex = 0;
+  List cardList = [Item1(), Item2(), Item3(), Item4()];
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    return Container(
+      width: width,
+      child: Column(
+        children: [
+          CarouselSlider(
+            options: CarouselOptions(
+              height: 200.0,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              pauseAutoPlayOnTouch: true,
+              aspectRatio: 2.0,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+            ),
+            items: cardList.map((card) {
+              return Builder(builder: (BuildContext context) {
+                return Container(
+                  height: MediaQuery.of(context).size.height * 0.30,
+                  width: MediaQuery.of(context).size.width,
+                  child: Card(
+                    color: Colors.blueAccent,
+                    child: card,
+                  ),
+                );
+              });
+            }).toList(),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: map<Widget>(cardList, (index, url) {
+              return Container(
+                width: 10.0,
+                height: 10.0,
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color:
+                      _currentIndex == index ? Colors.blueAccent : Colors.grey,
+                ),
+              );
+            }),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Item1 extends StatelessWidget {
+  const Item1({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [
+              0.3,
+              1
+            ],
+            colors: [
+              Color(0xffff4000),
+              Color(0xffffcc66),
+            ]),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Data",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold)),
+          Text("Data",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600)),
+        ],
+      ),
+    );
+  }
+}
+
+class Item2 extends StatelessWidget {
+  const Item2({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.3, 1],
+            colors: [Color(0xff5f2c82), Color(0xff49a09d)]),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Data",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold)),
+          Text("Data",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600)),
+        ],
+      ),
+    );
+  }
+}
+
+class Item3 extends StatelessWidget {
+  const Item3({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [
+              0.3,
+              1
+            ],
+            colors: [
+              Color(0xffff4000),
+              Color(0xffffcc66),
+            ]),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[Text('Hello')],
+      ),
+    );
+  }
+}
+
+class Item4 extends StatelessWidget {
+  const Item4({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Data",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold)),
+          Text("Data",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17.0,
+                  fontWeight: FontWeight.w600)),
+        ],
+      ),
     );
   }
 }

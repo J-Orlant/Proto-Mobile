@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     fontSize: 22.0,
     fontWeight: FontWeight.bold,
     fontFamily: 'RedHatText',
-    color: Colors.black,
+    color: Colors.white,
   );
 
   @override
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
               child: Container(
                 width: width,
                 height: height + 125,
-                color: Colors.orange.shade200,
+                color: Colors.orange,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: 10,
@@ -62,6 +62,7 @@ class HomeScreen extends StatelessWidget {
                                     fontSize: 15.0,
                                     fontWeight: FontWeight.bold,
                                     fontFamily: 'RedHatText',
+                                    color: Colors.white,
                                   ),
                                 ),
                                 Text(
@@ -156,10 +157,11 @@ class PopulerCard extends StatelessWidget {
                                     topRight: Radius.circular(20),
                                   ),
                                   image: DecorationImage(
-                                      image: NetworkImage(
-                                        tfood.gambar,
-                                      ),
-                                      fit: BoxFit.cover),
+                                    image: NetworkImage(
+                                      tfood.gambar,
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                                 width: 200,
                                 height: 150,
@@ -183,14 +185,26 @@ class PopulerCard extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Padding(
+                        Container(
                           padding: EdgeInsets.symmetric(horizontal: 5),
+                          decoration: BoxDecoration(
+                              border: Border(
+                            left: BorderSide(
+                              color: Colors.white24,
+                            ),
+                            right: BorderSide(
+                              color: Colors.white24,
+                            ),
+                            bottom: BorderSide(
+                              color: Colors.white24,
+                            ),
+                          )),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              SizedBox(
+                                height: 5,
+                              ),
                               Text(
                                 tfood.nama,
                                 style: TextStyle(

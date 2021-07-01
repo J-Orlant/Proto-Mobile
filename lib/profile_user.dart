@@ -116,6 +116,7 @@ class _AccountPageState extends State<AccountPage> {
                                 borderRadius: BorderRadius.circular(30),
                               ),
                               child: IconButton(
+                                splashColor: Colors.orange.shade100,
                                 onPressed: () {
                                   showModalBottomSheet(
                                       shape: RoundedRectangleBorder(

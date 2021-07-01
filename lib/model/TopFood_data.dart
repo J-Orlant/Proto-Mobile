@@ -4,6 +4,7 @@ class TopFood {
   String daerah;
   String waktu;
   List<String> bahan;
+  List gambarBahan;
   List jumlahBahan;
   List Resep;
 
@@ -13,6 +14,7 @@ class TopFood {
     required this.daerah,
     required this.waktu,
     required this.bahan,
+    required this.gambarBahan,
     required this.jumlahBahan,
     required this.Resep,
   });
@@ -50,6 +52,15 @@ var topFoodData = [
       'Kukus kembali nasi selama 45 menit',
       'Sajikan bersama dengan pelengkap.',
     ],
+    gambarBahan: [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyeYtNCoOMflivTBB53q6QsQHLavXpl-sWGA&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjoVDy_maQWkwU-yczqEbOO_wZ1vV7n9OQA&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSspnHIlPY9zdHRRmu79lHE7ZbfFZnFseRS7A&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmDkZtbsIXPOTKwxAFd_jKhol5KmxWGJlVqQ&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZKSlhGLml4iia9CZaQv60BhxF-o6HNbRlw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9hbTH25VLWloyOnH8z17reRk4c184GzE4Q&usqp=CAU',
+    ],
   ),
   TopFood(
     gambar:
@@ -82,6 +93,15 @@ var topFoodData = [
       'Kukus kembali nasi selama 45 menit',
       'Sajikan bersama dengan pelengkap.',
     ],
+    gambarBahan: [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyeYtNCoOMflivTBB53q6QsQHLavXpl-sWGA&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjoVDy_maQWkwU-yczqEbOO_wZ1vV7n9OQA&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSspnHIlPY9zdHRRmu79lHE7ZbfFZnFseRS7A&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmDkZtbsIXPOTKwxAFd_jKhol5KmxWGJlVqQ&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZKSlhGLml4iia9CZaQv60BhxF-o6HNbRlw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9hbTH25VLWloyOnH8z17reRk4c184GzE4Q&usqp=CAU',
+    ],
   ),
   TopFood(
     gambar:
@@ -113,6 +133,15 @@ var topFoodData = [
       'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
       'Kukus kembali nasi selama 45 menit',
       'Sajikan bersama dengan pelengkap.',
+    ],
+    gambarBahan: [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyeYtNCoOMflivTBB53q6QsQHLavXpl-sWGA&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBjoVDy_maQWkwU-yczqEbOO_wZ1vV7n9OQA&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSspnHIlPY9zdHRRmu79lHE7ZbfFZnFseRS7A&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmDkZtbsIXPOTKwxAFd_jKhol5KmxWGJlVqQ&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZKSlhGLml4iia9CZaQv60BhxF-o6HNbRlw&usqp=CAU',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9hbTH25VLWloyOnH8z17reRk4c184GzE4Q&usqp=CAU',
     ],
   ),
 ];
