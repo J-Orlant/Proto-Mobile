@@ -31,7 +31,7 @@ class Search extends StatelessWidget {
                 // Card Postingan
                 ListView.builder(
                   itemCount: feedDataFood.length,
-                  itemBuilder: (context, index) => CardPost(
+                  itemBuilder: (context, index) => KartuPost(
                     foodIndex: index,
                     feedData: feedDataFood[index],
                   ),
@@ -45,8 +45,8 @@ class Search extends StatelessWidget {
   }
 }
 
-class CardPost extends StatelessWidget {
-  const CardPost({
+class KartuPost extends StatelessWidget {
+  const KartuPost({
     Key? key,
     required this.foodIndex,
     required this.feedData,
@@ -56,102 +56,129 @@ class CardPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    bool isFavorite = false;
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 20 / 2,
-      ),
-      // color: Colors.blueAccent,
-      height: 160,
+      height: 170,
+      // color: Colors.red,
       child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: <Widget>[
-          // Card
-          Container(
-              height: 136,
-              // decoration: BoxDecoration(
-              //   borderRadius: BorderRadius.circular(22),
-              //   // color: Colors.blue[400],
-              //   boxShadow: [shadowColor],
-              // ),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return DetailFood(feedData: feedData);
-                  }));
-                },
-                child: Container(
-                  // margin: EdgeInsets.only(right: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [shadowColor],
+        children: [
+          Positioned(
+            top: 0,
+            left: 18,
+            child: Container(
+              height: 137.0,
+              width: width * 0.9,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      // offset: Offset(-10.0, 10.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 5.0),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            top: 12,
+            left: 30,
+            child: Card(
+              elevation: 10,
+              shadowColor: Colors.grey.withOpacity(0.5),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Container(
+                height: 105,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                      feedData.gambar,
+                    ),
                   ),
-                  child: Row(
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            left: 150,
+            child: Container(
+              height: 150,
+              width: 190,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    feedData.nama,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      // color: Colors.orange[700],
+                      color: Color(0xFF363f93),
+                    ),
+                  ),
+                  Text(
+                    feedData.daerah,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Divider(color: Colors.black),
+                  Text(
+                    "Waktu pembuatan:",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      // color: Colors.orange[700],
+                      color: Color(0xFF363f93),
+                    ),
+                  ),
+                  Text(
+                    feedData.waktu,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      // color: Colors.orange[700],
+                      color: Color(0xFF363f93),
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Row(
                     children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 12,
-                            horizontal: 12,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                feedData.nama,
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                feedData.daerah,
-                                style: TextStyle(fontSize: 14),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  FavoriteButton(),
-                                  SizedBox(
-                                    width: 15,
-                                  ),
-                                  Icon(
-                                    Icons.share_outlined,
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Icon(
+                          Icons.favorite_border,
+                          size: 27,
                         ),
                       ),
-                      // SizedBox(
-                      //   width: 10,
-                      // ),
-                      Container(
-                        width: 160,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(feedData.gambar),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: Icon(
+                          Icons.share_outlined,
+                          size: 27,
                         ),
                       ),
                     ],
                   ),
-                ),
-              )),
-          // Bagian Gambar
-          // Bantu disini coek aawokawokawokaw
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
