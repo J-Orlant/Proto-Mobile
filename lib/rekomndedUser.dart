@@ -94,7 +94,7 @@ class _UserProfile extends State<UserProfile> {
                             color: Colors.black12,
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          child: CustomButton(onPressed: () {}),
+                          child: CustomButton(),
                         ),
                       ),
                     ),
@@ -309,12 +309,16 @@ class _PostinganState extends State<Postingan> {
   }
 }
 
-class CustomButton extends StatelessWidget {
-  CustomButton({required this.onPressed});
-  final GestureTapCallback onPressed;
+class CustomButton extends StatefulWidget {
+  @override
+  _CustomButtonState createState() => _CustomButtonState();
+}
 
+class _CustomButtonState extends State<CustomButton> {
+  bool isTrue = false;
   @override
   Widget build(BuildContext context) {
+    String text = isTrue ? 'Ikuti' : 'Diikuti';
     return RawMaterialButton(
       fillColor: Colors.green,
       splashColor: Colors.greenAccent,
@@ -322,23 +326,27 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.all(7.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[
+          children: <Widget>[
             Icon(
-              Icons.done,
+              isTrue ? Icons.done : Icons.thumb_up,
               color: Colors.amber,
             ),
             SizedBox(
               width: 5.0,
             ),
             Text(
-              "Follow",
+              "$text",
               maxLines: 1,
               style: TextStyle(color: Colors.white),
             ),
           ],
         ),
       ),
-      onPressed: onPressed,
+      onPressed: () {
+        setState(() {
+          isTrue = !isTrue;
+        });
+      },
       shape: const StadiumBorder(),
     );
   }

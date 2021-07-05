@@ -80,7 +80,7 @@ var feedDataFood = [
       'Batang serai',
       'Kunyit bubuk',
       'Air',
-      'Tepung protein sedang',
+      'Tepung protein',
       'Ragi instan',
       'Gula pasir',
       'Tepung sagu',
@@ -103,10 +103,9 @@ var feedDataFood = [
       '200 g',
       '100 g',
       '50 g',
-      8,
+      '8',
       '2 Butir',
       '1 sdt',
-      '1/2 sdt'
     ],
     Resep: [
       'Campur tepung terigu, gula pasir, air dan ragi instan. Aduk rata, lalu diamkan selama 15 menit pada suhu ruang',
@@ -114,7 +113,8 @@ var feedDataFood = [
       'Gunakan api kecil. Aduk-aduk sampai mendidih agar tidak pecah.',
       'Masukkan telur utuh, kuning telur, gula pasir, garam dan vanilla bubuk, aduk hingga mengembang kemudian masukkan tepung sagu dan tepung ketan, aduk.',
       'Masukkan bahan biang ke dalam bahan utama, aduk sampai rata kemudian masukkan bahan santan, aduk sampai rata lalu diamkan selama 2 jam.',
-      'Setelah diistirahatkan, aduk kembali. Masukkan ke dalam loyang yg sudah di berikan minyak dan sudah di panaskan. Panggang dalam oven dengan suhu 180 derajat selama 35-40 menit dengan pintu oven sedikit terbuka.',
+      'Setelah diistirahatkan, aduk kembali. Masukkan ke dalam loyang yg sudah di berikan minyak dan sudah di panaskan.',
+      'Panggang dalam oven dengan suhu 180 derajat selama 35-40 menit dengan pintu oven sedikit terbuka.',
       'Jika bika ambon sudah matang, segera keluarkan dari oven.',
       'Tunggu sampai bika ambon dingin, lalu potong-potong dan sajikan.',
       'Sajikan bersama dengan pelengkap.',
@@ -173,7 +173,7 @@ var feedDataFood = [
       '200 g',
       '2 sdm',
       '10 Butir'
-      '1 sdm',
+          '1 sdm',
       '15 butir',
       '10 butir',
       '1/2 sdm'
@@ -364,15 +364,7 @@ var feedDataFood = [
       'Tomat',
       'Jeruk nipis',
     ],
-    jumlahBahan: [
-      1,
-      'Beberapa',
-      '3 sdm',
-      3,
-      3,
-      1,
-      1
-    ],
+    jumlahBahan: [1, 'Beberapa', '3 sdm', 3, 3, 1, 1],
     Resep: [
       'Bersihkan ikan, lalu olesi dengan garam',
       'Bungkus ikan dengan daun pisang.',
@@ -428,7 +420,7 @@ var feedDataFood = [
       17,
       7,
       '2 sdm'
-      'Secukupnya',
+          'Secukupnya',
       '3 Lembar',
       'Secukupnya',
       '5 sdm',

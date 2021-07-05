@@ -4,7 +4,7 @@ import 'package:proto/detailFood.dart';
 import 'package:proto/kategoriMakanan.dart';
 import 'package:proto/model/TopFood_data.dart';
 import 'package:proto/model/pengguna_data.dart';
-import 'package:proto/userProfile.dart';
+import 'package:proto/rekomndedUser.dart';
 
 class HomeScreen extends StatelessWidget {
   final styleJudul = TextStyle(
@@ -19,14 +19,14 @@ class HomeScreen extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Stack(
-          children: [
-            Positioned(
-              child: Container(
+      scrollDirection: Axis.vertical,
+      child: Stack(
+        children: [
+          Column(
+            children: [
+              Container(
                 width: width,
-                height: height + 125,
-                color: Colors.orange,
+                color: Colors.orange.shade400,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: 10,
@@ -77,6 +77,9 @@ class HomeScreen extends StatelessWidget {
                               height: 15,
                             ),
                             PopulerCard(),
+                            SizedBox(
+                              height: 30,
+                            ),
                           ],
                         ),
                       )
@@ -84,36 +87,60 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 400,
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 20,
-                ),
-                width: width,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    KateMakanan(),
-                    SizedBox(
-                      height: 30,
+              Stack(
+                children: [
+                  Positioned(
+                    child: Container(
+                      width: width,
+                      height: 200,
+                      color: Colors.orange.shade400,
                     ),
-                    RekomendasiPengguna(),
-                  ],
-                ),
+                  ),
+                  Positioned(
+                    child: Container(
+                      width: width,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 20,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          KateMakanan(),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          RekomendasiPengguna(),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.info_outline_rounded,
+                color: Colors.white,
+                size: 35,
               ),
             ),
-          ],
-        ));
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -135,9 +162,7 @@ class PopulerCard extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return DetailFood(
-                        tfood: tfood,
-                      );
+                      return DetailFood(tfood: tfood);
                     }));
                   },
                   child: Container(
@@ -188,17 +213,19 @@ class PopulerCard extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 5),
                           decoration: BoxDecoration(
-                              border: Border(
-                            left: BorderSide(
-                              color: Colors.white24,
+                            border: Border(
+                              left: BorderSide(
+                                color: Colors.white24,
+                              ),
+                              right: BorderSide(
+                                color: Colors.white24,
+                              ),
+                              bottom: BorderSide(
+                                color: Colors.white24,
+                              ),
                             ),
-                            right: BorderSide(
-                              color: Colors.white24,
-                            ),
-                            bottom: BorderSide(
-                              color: Colors.white24,
-                            ),
-                          )),
+                            color: Colors.white24,
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -303,11 +330,16 @@ class KateMakanan extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: 50,
-                            height: 50,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(80),
                               color: Colors.orange.shade100,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://asset-a.grid.id/crop/0x0:0x0/945x630/photo/2018/09/23/807720460.jpg'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -322,11 +354,16 @@ class KateMakanan extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: 50,
-                            height: 50,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(80),
                               color: Colors.orange.shade100,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1598787466/tikcowoksqsoeuzwa4mx.jpg'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -344,11 +381,16 @@ class KateMakanan extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: 50,
-                            height: 50,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(80),
                               color: Colors.orange.shade100,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://i2.wp.com/gpriority.co.id/wp-content/uploads/2021/02/jenis-rumah-bolon.jpg?fit=640%2C480&ssl=1'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -372,11 +414,16 @@ class KateMakanan extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: 50,
-                            height: 50,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(80),
                               color: Colors.orange.shade100,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://upload.wikimedia.org/wikipedia/commons/8/88/Raja_Ampat%2C_Mutiara_Indah_di_Timur_Indonesia.jpg'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -391,11 +438,16 @@ class KateMakanan extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: 50,
-                            height: 50,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(80),
                               color: Colors.orange.shade100,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'http://batikriau.com/bismillah/uploads/2014/12/candi-muara-takus-4.jpg'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -410,11 +462,16 @@ class KateMakanan extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            width: 50,
-                            height: 50,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(80),
                               color: Colors.orange.shade100,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://sgp1.digitaloceanspaces.com/tz-mag-id/wp-content/uploads/2018/05/020205053333/surga-tersembunyi-pantai-ora-maluku-by-stephanie_oq-1024x683.jpg'),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -457,7 +514,7 @@ class RekomendasiPengguna extends StatelessWidget {
           ),
           Container(
               width: width,
-              height: height / 4,
+              height: height / 5,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {

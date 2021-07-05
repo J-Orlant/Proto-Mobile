@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proto/detailFood.dart';
+import 'package:proto/model/feedData.dart';
 import 'package:proto/model/TopFood_data.dart';
 
 import '../heks_color.dart';
@@ -28,10 +30,10 @@ class Search extends StatelessWidget {
                 ),
                 // Card Postingan
                 ListView.builder(
-                  itemCount: topFoodData.length,
+                  itemCount: feedDataFood.length,
                   itemBuilder: (context, index) => CardPost(
                     foodIndex: index,
-                    topfood: topFoodData[index],
+                    feedData: feedDataFood[index],
                   ),
                 )
               ],
@@ -47,10 +49,10 @@ class CardPost extends StatelessWidget {
   const CardPost({
     Key? key,
     required this.foodIndex,
-    required this.topfood,
+    required this.feedData,
   }) : super(key: key);
   final int foodIndex;
-  final TopFood topfood;
+  final FeedData feedData;
 
   @override
   Widget build(BuildContext context) {
@@ -68,80 +70,86 @@ class CardPost extends StatelessWidget {
         children: <Widget>[
           // Card
           Container(
-            height: 136,
-            // decoration: BoxDecoration(
-            //   borderRadius: BorderRadius.circular(22),
-            //   // color: Colors.blue[400],
-            //   boxShadow: [shadowColor],
-            // ),
-            child: Container(
-              // margin: EdgeInsets.only(right: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [shadowColor],
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 12,
-                        horizontal: 12,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            topfood.nama,
-                            style: TextStyle(fontSize: 20),
+              height: 136,
+              // decoration: BoxDecoration(
+              //   borderRadius: BorderRadius.circular(22),
+              //   // color: Colors.blue[400],
+              //   boxShadow: [shadowColor],
+              // ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DetailFood(feedData: feedData);
+                  }));
+                },
+                child: Container(
+                  // margin: EdgeInsets.only(right: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [shadowColor],
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 12,
                           ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            topfood.daerah,
-                            style: TextStyle(fontSize: 17),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              FavoriteButton(),
+                              Text(
+                                feedData.nama,
+                                style: TextStyle(fontSize: 20),
+                              ),
                               SizedBox(
-                                width: 15,
+                                height: 5,
                               ),
-                              Icon(
-                                Icons.share_outlined,
+                              Text(
+                                feedData.daerah,
+                                style: TextStyle(fontSize: 14),
                               ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  FavoriteButton(),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Icon(
+                                    Icons.share_outlined,
+                                  ),
+                                ],
+                              )
                             ],
-                          )
-                        ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: 160,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(topfood.gambar),
-                        fit: BoxFit.cover,
+                      // SizedBox(
+                      //   width: 10,
+                      // ),
+                      Container(
+                        width: 160,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(feedData.gambar),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
+                          ),
+                        ),
                       ),
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20),
-                        bottomRight: Radius.circular(20),
-                      ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-          ),
+                ),
+              )),
           // Bagian Gambar
           // Bantu disini coek aawokawokawokaw
         ],

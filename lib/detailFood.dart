@@ -1,66 +1,97 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:proto/model/TopFood_data.dart';
-import 'package:flip_card/flip_card.dart';
+import 'package:proto/model/feedData.dart';
 
 class DetailFood extends StatelessWidget {
-  final TopFood tfood;
-
-  const DetailFood({required this.tfood});
+  final TopFood? tfood;
+  final FeedData? feedData;
+  DetailFood({this.feedData, this.tfood});
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: Colors.orange.shade300,
-        body: SafeArea(
-            child: Stack(
+      backgroundColor: Colors.orange.shade300,
+      body: SafeArea(
+        child: Stack(
           children: [
-            Column(
+            Stack(
               children: [
-                Stack(
-                  children: [
-                    Banner(tfood: tfood),
-                    Positioned(
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Positioned(
+                  child: Container(
+                    width: width,
+                    height: height,
+                  ),
+                ),
+                Positioned(
+                  child: Container(
+                    width: width,
+                    height: height,
+                    child: Column(
+                      children: [
+                        Column(
                           children: [
-                            IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(Icons.arrow_back),
-                              color: Colors.white,
-                            ),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.share,
-                                    color: Colors.white,
+                            Container(
+                              width: width,
+                              child: Stack(
+                                children: [
+                                  Banner(
+                                    tfood: tfood,
+                                    feedData: feedData,
                                   ),
-                                ),
-                                BookMark()
-                              ],
-                            )
+                                  Positioned(
+                                    child: Container(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            icon: Icon(Icons.arrow_back),
+                                            color: Colors.white,
+                                          ),
+                                          Row(
+                                            children: [
+                                              IconButton(
+                                                onPressed: () {},
+                                                icon: Icon(
+                                                  Icons.share,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                              BookMark()
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Resep(tfood: tfood),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Resep(
+                          tfood: tfood,
+                          feedData: feedData,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
             SizedBox.expand(
               child: DraggableScrollableSheet(
-                initialChildSize: 0.73,
-                minChildSize: 0.12,
+                initialChildSize: 0.3,
+                minChildSize: 0.3,
                 maxChildSize: 0.8,
                 builder: (BuildContext c, s) {
                   return Container(
@@ -130,7 +161,9 @@ class DetailFood extends StatelessWidget {
                                   height: 5.0,
                                 ),
                                 Text(
-                                  tfood.waktu,
+                                  tfood == null
+                                      ? feedData!.waktu
+                                      : tfood!.waktu,
                                   style: TextStyle(
                                     fontFamily: 'RedHatText',
                                     fontSize: 18,
@@ -165,7 +198,7 @@ class DetailFood extends StatelessWidget {
                           height: 25,
                         ),
                         Text(
-                          tfood.nama,
+                          tfood == null ? feedData!.nama : tfood!.nama,
                           style: TextStyle(
                             fontSize: 30,
                             fontFamily: 'RedHatText',
@@ -173,7 +206,7 @@ class DetailFood extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          tfood.daerah,
+                          tfood == null ? feedData!.daerah : tfood!.daerah,
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w300,
@@ -206,9 +239,9 @@ class DetailFood extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 40,
                         ),
-                        BahanLoop(tfood: tfood)
+                        BahanLoop(tfood: tfood, feedData: feedData),
                       ],
                     ),
                   );
@@ -216,7 +249,9 @@ class DetailFood extends StatelessWidget {
               ),
             )
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
 
@@ -302,69 +337,137 @@ class _NumberCountState extends State<NumberCount> {
   }
 }
 
-class BahanLoop extends StatelessWidget {
-  final TopFood tfood;
+class BahanLoop extends StatefulWidget {
+  final TopFood? tfood;
+  final FeedData? feedData;
 
-  BahanLoop({required this.tfood});
+  BahanLoop({this.tfood, this.feedData});
+  @override
+  _BahanLoopState createState() => _BahanLoopState();
+}
+
+class _BahanLoopState extends State<BahanLoop> {
   @override
   Widget build(BuildContext context) {
-    return new Column(
-      children: tfood.bahan.map((e) {
-        var index = tfood.bahan.indexOf(e);
-        var jumlah = tfood.jumlahBahan[index];
-        // var gambar = tfood.gambarBahan[index];
-        return Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
+    return new Container(
+      child: Column(
+        children: widget.tfood == null
+            ? widget.feedData!.bahan.map((e) {
+                var index = widget.tfood == null
+                    ? widget.feedData!.bahan.indexOf(e)
+                    : widget.tfood!.bahan.indexOf(e);
+                var jumlah = widget.tfood == null
+                    ? widget.feedData!.jumlahBahan[index]
+                    : widget.tfood!.jumlahBahan[index];
+                return Column(
                   children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: NetworkImage(tfood.gambarBahan[index]),
-                            fit: BoxFit.cover,
-                          )),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: NetworkImage(widget.tfood == null
+                                        ? widget.feedData!.gambarBahan[index]
+                                        : widget.tfood!.gambarBahan[index]),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Text(
+                              e,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            )
+                          ],
+                        ),
+                        Text(
+                          '$jumlah',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        )
+                      ],
                     ),
                     SizedBox(
-                      width: 15,
+                      height: 10,
                     ),
-                    Text(
-                      e,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    )
                   ],
-                ),
-                Text(
-                  '$jumlah',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-          ],
-        );
-      }).toList(),
+                );
+              }).toList()
+            : widget.tfood!.bahan.map((e) {
+                var index = widget.tfood == null
+                    ? widget.feedData!.bahan.indexOf(e)
+                    : widget.tfood!.bahan.indexOf(e);
+                var jumlah = widget.tfood == null
+                    ? widget.feedData!.jumlahBahan[index]
+                    : widget.tfood!.jumlahBahan[index];
+                return Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: NetworkImage(widget.tfood == null
+                                        ? widget.feedData!.gambarBahan[index]
+                                        : widget.tfood!.gambarBahan[index]),
+                                    fit: BoxFit.cover,
+                                  )),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Text(
+                              e,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            )
+                          ],
+                        ),
+                        Text(
+                          '$jumlah',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                );
+              }).toList(),
+      ),
     );
   }
 }
 
 class Banner extends StatefulWidget {
-  final TopFood tfood;
+  final TopFood? tfood;
+  final FeedData? feedData;
 
-  const Banner({Key? key, required this.tfood}) : super(key: key);
+  const Banner({Key? key, this.tfood, this.feedData}) : super(key: key);
   @override
   _BannerState createState() => _BannerState();
 }
@@ -381,7 +484,9 @@ class _BannerState extends State<Banner> {
 
   @override
   Widget build(BuildContext context) {
-    var cardList = widget.tfood.gambarBanner;
+    var cardList = widget.tfood == null
+        ? widget.feedData!.gambarBanner
+        : widget.tfood!.gambarBanner;
     var width = MediaQuery.of(context).size.width;
     return Container(
       width: width,
@@ -448,8 +553,9 @@ class _BannerState extends State<Banner> {
 }
 
 class Resep extends StatefulWidget {
-  final TopFood tfood;
-  const Resep({Key? key, required this.tfood}) : super(key: key);
+  final TopFood? tfood;
+  final FeedData? feedData;
+  const Resep({Key? key, this.tfood, this.feedData}) : super(key: key);
   @override
   _ResepState createState() => _ResepState();
 }
@@ -457,96 +563,67 @@ class Resep extends StatefulWidget {
 class _ResepState extends State<Resep> {
   @override
   Widget build(BuildContext context) {
-    var resepLoop = widget.tfood.Resep;
+    var resepLoop =
+        widget.tfood == null ? widget.feedData!.Resep : widget.tfood!.Resep;
     CarouselController tombol = new CarouselController();
-    return Column(
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            height: MediaQuery.of(context).size.width / 2,
-            enableInfiniteScroll: false,
-            enlargeCenterPage: true,
-          ),
-          carouselController: tombol,
-          items: resepLoop.map((data) {
-            var urutan = resepLoop.indexOf(data) + 1;
-            return Builder(builder: (BuildContext context) {
-              return Container(
-                margin: EdgeInsets.symmetric(horizontal: 5),
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.width / 2,
-                child: FlipCard(
-                  direction: FlipDirection.HORIZONTAL,
-                  front: Stack(
-                    alignment: Alignment.center,
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.width / 1.5,
+      child: CarouselSlider(
+        options: CarouselOptions(
+          height: MediaQuery.of(context).size.width / 2,
+          enableInfiniteScroll: false,
+          enlargeCenterPage: true,
+          scrollDirection: Axis.vertical,
+        ),
+        carouselController: tombol,
+        items: resepLoop.map((data) {
+          var urutan = resepLoop.indexOf(data) + 1;
+          return Builder(builder: (BuildContext context) {
+            return Container(
+              margin: EdgeInsets.symmetric(horizontal: 5),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width,
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orange.shade200,
+                  ),
+                  child: Row(
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.orange.shade200,
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            '$urutan.',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                      Text(
-                        '$urutan',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w600),
-                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Center(
+                          child: Text(
+                            '$data',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      )
                     ],
-                  ),
-                  back: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Colors.blue,
-                    ),
-                    padding: EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        '$data',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            });
-          }).toList(),
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              onPressed: () {
-                tombol.previousPage();
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(
-              width: 15,
-            ),
-            IconButton(
-              onPressed: () {
-                tombol.previousPage();
-              },
-              icon: Icon(
-                Icons.arrow_forward,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ],
+                  )),
+            );
+          });
+        }).toList(),
+      ),
     );
   }
 }

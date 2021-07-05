@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:proto/imagePicker/picker.dart';
 
 class AddPostingan extends StatefulWidget {
   @override
@@ -41,6 +42,8 @@ class _AddPostinganState extends State<AddPostingan> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         color: Colors.black,
         child: Stack(
           children: [
@@ -125,6 +128,22 @@ class _AddPostinganState extends State<AddPostingan> {
                                 borderRadius: BorderRadius.circular(5)),
                           ),
                         ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Picker();
+                            }));
+                          },
+                          icon: Icon(
+                            Icons.image,
+                            color: Colors.orange,
+                            size: 40,
+                          ),
+                        )
                       ],
                     ),
                   );
