@@ -132,12 +132,7 @@ class _AddPostinganState extends State<AddPostingan> {
                           height: 40,
                         ),
                         IconButton(
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return Picker();
-                            }));
-                          },
+                          onPressed: () {},
                           icon: Icon(
                             Icons.image,
                             color: Colors.orange,
