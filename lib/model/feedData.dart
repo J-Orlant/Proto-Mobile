@@ -127,13 +127,9 @@ var feedDataFood = [
       'https://ik.imagekit.io/10tn5i0v1n/article/c328bbb035969aca1bf4401c3da67eb4.jpeg',
       'https://image-cdn.medkomtek.com/m-KtwKZ5aUecVFPUieaHVvVT78k=/673x379/smart/klikdokter-media-buckets/medias/2310088/original/013060900_1576828558-Ciri-ciri-Air-Minum-yang-Tercemar-dan-Bahayanya-untuk-Tubuh-By-Tarasyuk-Igor-shutterstock.jpg',
       'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//99/MTA-9734408/bogasari_tepung_terigu_protein_sedang_segitiga_biru_bogasari_1kg_-_bos_sayur_full01_fm8kaxvr.jpg',
-      'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//99/MTA-9734408/bogasari_tepung_terigu_protein_sedang_segitiga_biru_bogasari_1kg_-_bos_sayur_full01_fm8kaxvr.jpg',
-      // Error (Apus link yang sama di atas klo udah di benerin)
-      // 'https://www.bogasari.com/uploads/tips/tips-ragi-instan-tetap-awet_large.jpg',
+      'https://asset.kompas.com/crops/Us0msqfcr9X7S_SPv9C0LSsYq2Q=/0x35:1000x702/750x500/data/photo/2020/09/02/5f4fb9a804119.jpg',
       'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/ilustrasi-gula-yoi.jpg',
-      'https://cdn-2.tstatic.net/tribunnews/foto/bank/images/ilustrasi-gula-yoi.jpg',
-      // Error (Apus link yang sama di atas klo udah di benerin)
-      // 'https://lh3.googleusercontent.com/proxy/5osNw-nj9uigB-RCRrwmfxTlPbjyvyNTmGY48sEO1O1v-PRFRgVwKIlKLV_0R5G7k5GGxnKtn0LOgAS1KSlL6QP5h_Eq5A',
+      'https://asset-a.grid.id//crop/0x0:0x0/360x240/photo/2020/07/01/314913907.jpg',
       'https://images.tokopedia.net/img/cache/500-square/product-1/2018/10/17/4388346/4388346_796e9371-3e5b-44c6-8ee0-8778c3054fc1_1500_1500.jpg.webp',
       'https://statik.tempo.co/data/2016/05/27/id_509969/509969_620.jpg',
       'https://statik.tempo.co/data/2019/11/07/id_887176/887176_720.jpg',
@@ -337,9 +333,7 @@ var feedDataFood = [
       'https://res.cloudinary.com/dk0z4ums3/image/upload/v1534576509/attached_image/9-manfaat-tomat-buah-yang-disangka-sayur.jpg',
       'https://asset.kompas.com/crops/UKmaHIM1XAzwNqWJC1YxSlAis3o=/103x89:1793x1215/750x500/data/photo/2021/04/02/60667f1184ff7.jpg',
       'https://asset.kompas.com/crops/jSLG2M1XGMCJ5-RtKcf4lyO7tKY=/37x31:1265x850/750x500/data/photo/2021/01/11/5ffbc93c63d58.jpg',
-      'https://asset.kompas.com/crops/jSLG2M1XGMCJ5-RtKcf4lyO7tKY=/37x31:1265x850/750x500/data/photo/2021/01/11/5ffbc93c63d58.jpg',
-      // Error (Apus Link gambar yang diatas yang sama klo udah dibenerin)
-      // 'https://www.bogasari.com/uploads/tips/tips-mengocok-telur-yang-benar_large.jpg',
+      'https://id-test-11.slatic.net/p/9e4966e0ac19a75d7bc65d37acec9e35.jpg',
       'https://awsimages.detik.net.id/customthumb/2014/04/16/312/121300_currypowder.jpg?w=700&q=90',
       'https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/2018/12/01/1409198200.jpg',
       'https://media.suara.com/pictures/970x544/2018/12/19/80337-minum-kecap-asin.jpg',
@@ -389,9 +383,7 @@ var feedDataFood = [
     ],
     gambarBanner: [
       'https://merahputih.com/media/9a/7b/ed/9a7bed7c8a6c9b0375f8e624bdb935e3.jpg',
-      // error
-      // 'https://dispar.malukuprov.go.id/wp-content/uploads/2021/01/IKAN-ASAR-COLOCOLO-scaled.jpg',
-      //
+      'https://beritapapua.id/wp-content/uploads/2020/02/ikan-asarjpg-xPgz.jpg',
       'https://indonesiakaya.com/wp-content/uploads/2020/10/Ikan_Asar_yang_sudah_matang_dan_siap_untuk_disajikan_atau_diolah_lagi_.jpg',
     ],
   ),
