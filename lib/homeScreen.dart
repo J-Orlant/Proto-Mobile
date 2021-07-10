@@ -162,7 +162,7 @@ class PopulerCard extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return DetailFood(tfood: tfood);
+                      return ResepMakanan();
                     }));
                   },
                   child: Container(

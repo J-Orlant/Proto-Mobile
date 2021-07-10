@@ -1,8 +1,840 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/model/TopFood_data.dart';
 import 'package:proto/model/feedData.dart';
 
+// Ini Modelan Baru
+class ResepMakanan extends StatefulWidget {
+  ResepMakanan({Key? key}) : super(key: key);
+
+  @override
+  _ResepMakananState createState() => _ResepMakananState();
+}
+
+class _ResepMakananState extends State<ResepMakanan> {
+  int selectedIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              width: 100.0,
+              height: height * 0.4,
+              // height: 320,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      'https://www.masakapahariini.com/wp-content/uploads/2018/09/cara-membuat-nasi-uduk-MAHI-1.jpg'),
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(45),
+                  bottomRight: Radius.circular(45),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey,
+                      // offset: Offset(-2.0, 2.0),
+                      blurRadius: 10.0,
+                      spreadRadius: 12.0),
+                ],
+              ),
+              // Ini Untuk Tag nama daerah
+              // child: Stack(
+              //   children: [
+              //     Positioned(
+              //       bottom: 20,
+              //       left: 22,
+              //       child: Container(
+              //         height: 22,
+              //         width: 75,
+              //         decoration: BoxDecoration(
+              //           color: Colors.white,
+              //           borderRadius: BorderRadius.circular(50),
+              //         ),
+              //       ),
+              //     ),
+              //     Positioned(
+              //       bottom: 20,
+              //       left: 27,
+              //       child: Text('Jakarta',
+              //           style: GoogleFonts.roboto(
+              //             fontSize: 18,
+              //             fontWeight: FontWeight.w800,
+              //             color: Colors.orange,
+              //           )),
+              //     ),
+              //   ],
+              // ),
+            ),
+            SizedBox(height: 15),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Text(
+                        'Nasi Uduk',
+                        style: GoogleFonts.oswald(
+                          fontSize: 31,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 100.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(50),
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://assets.pikiran-rakyat.com/crop/0x372:670x1021/x/photo/2020/07/17/4102275230.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: Text(
+                              'shinryuuu_',
+                              style: GoogleFonts.oswald(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Text(
+                        'Jakarta',
+                        style: GoogleFonts.oswald(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 165.0),
+                      child: Icon(Icons.access_time,
+                          color: Colors.grey.withOpacity(0.5), size: 25),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 3.0),
+                      child: Text(
+                        '20 - 30 menit',
+                        style: GoogleFonts.oswald(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey.withOpacity(0.8),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 15),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Icon(
+                        Icons.favorite_border,
+                        size: 25,
+                        color: Colors.pink,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 3),
+                      child: Text(
+                        '900',
+                        style: GoogleFonts.oswald(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 40.0),
+                      child: Icon(
+                        Icons.chat,
+                        size: 25,
+                        color: Colors.orange.shade400,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 3),
+                      child: Text(
+                        '900',
+                        style: GoogleFonts.oswald(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 35),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: TextButton(
+                        child: Text(
+                          'Bahan',
+                          style: GoogleFonts.oswald(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: selectedIndex == 0
+                                ? Colors.orange
+                                : Colors.black,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            selectedIndex = 0;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 45.0),
+                      child: TextButton(
+                        child: Text(
+                          'Intruksi',
+                          style: GoogleFonts.oswald(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: selectedIndex == 1
+                                ? Colors.orange
+                                : Colors.black,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            selectedIndex = 1;
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 45.0),
+                      child: TextButton(
+                        child: Text(
+                          'Komentar',
+                          style: GoogleFonts.oswald(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: selectedIndex == 2
+                                ? Colors.orange
+                                : Colors.black,
+                          ),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            selectedIndex = 2;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          height: 2,
+                          width: (width * 0.3),
+                          decoration: BoxDecoration(
+                            color: selectedIndex == 0
+                                ? Colors.orange
+                                : Colors.transparent,
+                          ),
+                        ),
+                        Container(
+                          height: 2,
+                          width: (width * 0.3),
+                          decoration: BoxDecoration(
+                            color: selectedIndex == 1
+                                ? Colors.orange
+                                : Colors.transparent,
+                          ),
+                        ),
+                        Container(
+                          height: 2,
+                          width: (width * 0.4),
+                          decoration: BoxDecoration(
+                            color: selectedIndex == 2
+                                ? Colors.orange
+                                : Colors.transparent,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                IndexedStack(
+                  index: selectedIndex,
+                  children: [
+                    BahanMakanan(),
+                    Intruksi(width),
+                    Komentar(),
+                  ],
+                ),
+                // BagianBahan
+
+                // Akhir Bagian Bahan
+                // Uy
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget BahanMakanan() => Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Beras',
+                    style: GoogleFonts.oswald(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Text(
+                  '300',
+                  style: GoogleFonts.oswald(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU'),
+                            fit: BoxFit.cover,
+                          )),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Beras',
+                    style: GoogleFonts.oswald(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Text(
+                  '300',
+                  style: GoogleFonts.oswald(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU'),
+                            fit: BoxFit.cover,
+                          )),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Beras',
+                    style: GoogleFonts.oswald(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Text(
+                  '300',
+                  style: GoogleFonts.oswald(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 25.0),
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdxjcqg2Q2vrHGkEI51oaw9Tul_VMXRWyEsw&usqp=CAU'),
+                            fit: BoxFit.cover,
+                          )),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Beras',
+                    style: GoogleFonts.oswald(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Text(
+                  '300',
+                  style: GoogleFonts.oswald(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+  Widget Intruksi(double width) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 10),
+                child: Icon(Icons.circle, size: 8, color: Colors.orange[400]),
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: width * 0.8,
+                    child: Text(
+                      'Beras yang sudah dicuci kemudian dikukus selama 30 menit. Sisihkan',
+                      style: GoogleFonts.oswald(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 10),
+                child: Icon(Icons.circle, size: 8, color: Colors.orange[400]),
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: width * 0.8,
+                    child: Text(
+                      'Didihkan santan bersama dengan cengkeh, kayu manis, daun salam, serai, hingga harum kemudian saring',
+                      style: GoogleFonts.oswald(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 10),
+                child: Icon(Icons.circle, size: 8, color: Colors.orange[400]),
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: width * 0.8,
+                    child: Text(
+                      'Kemudian aduk nasi yang sudah aron bersama santan hingga santan meresap',
+                      style: GoogleFonts.oswald(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 10),
+                child: Icon(Icons.circle, size: 8, color: Colors.orange[400]),
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: width * 0.8,
+                    child: Text(
+                      'Kukus kembali nasi selama 45 menit',
+                      style: GoogleFonts.oswald(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 30, right: 10),
+                child: Icon(Icons.circle, size: 8, color: Colors.orange[400]),
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: width * 0.8,
+                    child: Text(
+                      'Sajikan bersama dengan pelengkap.',
+                      style: GoogleFonts.oswald(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+        ],
+      );
+  Widget Komentar() => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Row(
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(50),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://assets.pikiran-rakyat.com/crop/0x372:670x1021/x/photo/2020/07/17/4102275230.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        // color: Colors.red,
+                        width: 200,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "roses_are_rosie",
+                                style: GoogleFonts.oswald(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Icon(Icons.favorite_border,
+                                  size: 22, color: Colors.pink),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 2),
+                      Container(
+                        width: 180,
+                        child: Text(
+                          "Sangat memuaskan !",
+                          style: GoogleFonts.oswald(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey.withOpacity(0.9)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Row(
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(50),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://pbs.twimg.com/profile_images/1401860193340694530/81rv3s6e_400x400.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        // color: Colors.red,
+                        width: 200,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "minn.__.ju",
+                                style: GoogleFonts.oswald(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Icon(Icons.favorite_border,
+                                  size: 22, color: Colors.pink),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 2),
+                      Container(
+                        width: 180,
+                        child: Text(
+                          "Kalian wajib coba ini !",
+                          style: GoogleFonts.oswald(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey.withOpacity(0.9)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Row(
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(50),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://mmc.tirto.id/image/otf/400x0/2018/07/24/lisa--blackpink-_ratio-3x4.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        // color: Colors.red,
+                        width: 200,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "lalalalisa_m",
+                                style: GoogleFonts.oswald(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Icon(Icons.favorite_border,
+                                  size: 22, color: Colors.pink),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 2),
+                      Container(
+                        width: 180,
+                        child: Text(
+                          "Aku makan ini terus terusan, rasanya enak !",
+                          style: GoogleFonts.oswald(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.grey.withOpacity(0.9)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+}
+
+// Batas akhir
 class DetailFood extends StatelessWidget {
   final TopFood? tfood;
   final FeedData? feedData;
@@ -119,7 +951,7 @@ class DetailFood extends StatelessWidget {
                             width: 100,
                             decoration: BoxDecoration(
                                 color: Colors.black26,
-                                borderRadius: BorderRadius.circular(5)),
+                                borderRadius: BorderRadius.circular(10)),
                           ),
                         ),
                         SizedBox(

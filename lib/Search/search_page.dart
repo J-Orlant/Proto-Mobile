@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:proto/detailFood.dart';
 import 'package:proto/model/feedData.dart';
 import 'package:proto/model/TopFood_data.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../heks_color.dart';
 
