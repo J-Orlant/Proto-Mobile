@@ -18,127 +18,130 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Stack(
-        children: [
-          Column(
-            children: [
-              Container(
-                width: width,
-                color: Colors.orange.shade400,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 10,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Kamu Mau',
-                        style: styleJudul,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Masak Apa Hari Ini ?',
-                        style: styleJudul,
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Container(
-                        width: width,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Makanan Terpopuler Minggu Ini',
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: 'RedHatText',
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  'Lihat Semua',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w100,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            PopulerCard(),
-                            SizedBox(
-                              height: 30,
-                            ),
-                          ],
+    return SafeArea(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Container(
+                  width: width,
+                  color: Colors.orange,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 10,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Kamu Mau',
+                          style: styleJudul,
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Masak Apa Hari Ini ?',
+                          style: styleJudul,
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Container(
+                          width: width,
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Makanan Terpopuler Minggu Ini',
+                                    style: TextStyle(
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'RedHatText',
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Lihat Semua',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w100,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              PopulerCard(),
+                              SizedBox(
+                                height: 30,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Stack(
-                children: [
-                  Positioned(
-                    child: Container(
-                      width: width,
-                      height: 200,
-                      color: Colors.orange.shade400,
-                    ),
-                  ),
-                  Positioned(
-                    child: Container(
-                      width: width,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 20,
+                Stack(
+                  children: [
+                    Positioned(
+                      child: Container(
+                        width: width,
+                        height: 200,
+                        color: Colors.orange.shade400,
                       ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
+                    ),
+                    Positioned(
+                      child: Container(
+                        width: width,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 20,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            KateMakanan(),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            RekomendasiPengguna(),
+                          ],
                         ),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          KateMakanan(),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          RekomendasiPengguna(),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-          Positioned(
-            top: 10,
-            right: 10,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.info_outline_rounded,
-                color: Colors.white,
-                size: 35,
-              ),
+                    )
+                  ],
+                )
+              ],
             ),
-          )
-        ],
+            Positioned(
+              top: 10,
+              right: 10,
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.info_outline_rounded,
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -162,7 +165,9 @@ class PopulerCard extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return ResepMakanan();
+                      return ResepMakanan(
+                        tfood: tfood,
+                      );
                     }));
                   },
                   child: Container(
@@ -445,7 +450,7 @@ class KateMakanan extends StatelessWidget {
                               color: Colors.orange.shade100,
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    'http://batikriau.com/bismillah/uploads/2014/12/candi-muara-takus-4.jpg'),
+                                    'https://cdn0-production-images-kly.akamaized.net/9CsRTldAior0074hWVXqJ8g0hNc=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2967673/original/087136200_1573726271-IMG_20191114_003840.jpg'),
                                 fit: BoxFit.cover,
                               ),
                             ),

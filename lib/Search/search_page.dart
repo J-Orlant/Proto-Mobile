@@ -59,128 +59,137 @@ class KartuPost extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    return Container(
-      height: 170,
-      // color: Colors.red,
-      child: Stack(
-        children: [
-          Positioned(
-            top: 0,
-            left: 18,
-            child: Container(
-              height: 137.0,
-              width: width * 0.9,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      // offset: Offset(-10.0, 10.0),
-                      blurRadius: 10.0,
-                      spreadRadius: 5.0),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            top: 12,
-            left: 30,
-            child: Card(
-              elevation: 10,
-              shadowColor: Colors.grey.withOpacity(0.5),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ResepMakanan(
+            feedData: feedData,
+          );
+        }));
+      },
+      child: Container(
+        height: 170,
+        // color: Colors.red,
+        child: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              left: 18,
               child: Container(
-                height: 105,
-                width: 100,
+                height: 137.0,
+                width: width * 0.9,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                      feedData.gambar,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                    bottomLeft: Radius.circular(15),
+                    bottomRight: Radius.circular(15),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        // offset: Offset(-10.0, 10.0),
+                        blurRadius: 10.0,
+                        spreadRadius: 5.0),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: 12,
+              left: 30,
+              child: Card(
+                elevation: 10,
+                shadowColor: Colors.grey.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Container(
+                  height: 105,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        feedData.gambar,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            top: 10,
-            left: 150,
-            child: Container(
-              height: 150,
-              width: 190,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    feedData.nama,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      // color: Colors.orange[700],
-                      color: Color(0xFF363f93),
-                    ),
-                  ),
-                  Text(
-                    feedData.daerah,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  Divider(color: Colors.black),
-                  Text(
-                    "Waktu pembuatan:",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      // color: Colors.orange[700],
-                      color: Color(0xFF363f93),
-                    ),
-                  ),
-                  Text(
-                    feedData.waktu,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      // color: Colors.orange[700],
-                      color: Color(0xFF363f93),
-                    ),
-                  ),
-                  SizedBox(height: 6),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Icon(
-                          Icons.favorite_border,
-                          size: 27,
-                        ),
+            Positioned(
+              top: 10,
+              left: 150,
+              child: Container(
+                height: 150,
+                width: 190,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      feedData.nama,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        // color: Colors.orange[700],
+                        color: Color(0xFF363f93),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 4),
-                        child: Icon(
-                          Icons.share_outlined,
-                          size: 27,
-                        ),
+                    ),
+                    Text(
+                      feedData.daerah,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    Divider(color: Colors.black),
+                    Text(
+                      "Waktu pembuatan:",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        // color: Colors.orange[700],
+                        color: Color(0xFF363f93),
+                      ),
+                    ),
+                    Text(
+                      feedData.waktu,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        // color: Colors.orange[700],
+                        color: Color(0xFF363f93),
+                      ),
+                    ),
+                    SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: Icon(
+                            Icons.favorite_border,
+                            size: 27,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 4),
+                          child: Icon(
+                            Icons.share_outlined,
+                            size: 27,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

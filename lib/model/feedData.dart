@@ -3,7 +3,7 @@ class FeedData {
   String nama;
   String daerah;
   String waktu;
-  List<String> bahan;
+  List bahan;
   List gambarBahan;
   List jumlahBahan;
   List Resep;
@@ -237,7 +237,7 @@ var feedDataFood = [
       '1 sdm',
       4,
       '1 ruas',
-      'Secukupnya(15 Recomended)',
+      'Secukupnya',
       '1 sdm',
       'Secukupnya',
       10,
@@ -527,7 +527,7 @@ var feedDataFood = [
       'Santan',
       'Garam halus',
       'Daun pisang',
-      'Tali (dari pelepah pohon pisang)',
+      'Tali pelepah pisang',
     ],
     jumlahBahan: [
       '1 kg',

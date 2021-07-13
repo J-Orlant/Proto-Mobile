@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:proto/addPostingan.dart';
+import 'package:proto/addPosting.dart';
+import 'package:proto/camera.dart';
 import 'package:proto/heks_color.dart';
 import 'package:proto/homeScreen.dart';
 import 'package:proto/loginScreen.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       home: LoginScreen(),
     );
@@ -33,49 +34,66 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentPage = 0;
-  final _pageOptions = [
-    HomeScreen(),
-    AddPostingan(),
-    // Center(child: Text('add Postingan')),
-    // Center(child: Text('Search')),
-    SearchPage(),
-    AccountPage(),
-  ];
+  int _currentIndex = 0;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // backgroundColor: const Color(0xfff3f3f3),
-        body: SafeArea(
-          child: _pageOptions[currentPage],
-        ),
-        bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: HexColor.fromHex('#F58123'),
-          animationDuration: Duration(milliseconds: 500),
-          items: <Widget>[
-            Icon(
-              Icons.home,
-              size: 30,
-            ),
-            Icon(
-              Icons.add,
-              size: 30,
-            ),
-            Icon(
-              Icons.search,
-              size: 30,
-            ),
-            Icon(
-              Icons.person,
-              size: 30,
-            ),
-          ],
-          onTap: (index) {
+      body: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
             setState(() {
-              currentPage = index;
+              _currentIndex = index;
             });
           },
-        ));
+          children: [
+            HomeScreen(),
+            AddPosting(),
+            SearchPage(),
+            AccountPage(),
+          ]),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: HexColor.fromHex('#F58123'),
+        index: _currentIndex,
+        animationDuration: Duration(milliseconds: 500),
+        items: <Widget>[
+          Icon(
+            Icons.home,
+            size: 30,
+          ),
+          Icon(
+            Icons.add,
+            size: 30,
+          ),
+          Icon(
+            Icons.search,
+            size: 30,
+          ),
+          Icon(
+            Icons.person,
+            size: 30,
+          ),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+            _pageController.jumpToPage(index);
+          });
+        },
+      ),
+    );
   }
 }
