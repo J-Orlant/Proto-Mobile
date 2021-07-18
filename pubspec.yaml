@@ -27,11 +27,13 @@ dependencies:
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.0
-  dotted_border: ^2.0.0
   flutter_file_manager: ^0.2.0
   flutter_native_splash: ^1.2.0
+  flutter_typeahead: ^3.2.0
   google_fonts: ^2.1.0
+  path_provider: ^2.0.2
   storage_path: ^0.2.0
+  youtube_player_flutter: ^8.0.0
 
 flutter_native_splash:
   color: "#FFA500"

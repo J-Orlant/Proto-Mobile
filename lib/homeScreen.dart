@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:proto/detailFood.dart';
+import 'package:proto/detailKategori.dart';
 import 'package:proto/kategoriMakanan.dart';
 import 'package:proto/model/TopFood_data.dart';
+import 'package:proto/model/kategori_data.dart';
 import 'package:proto/model/pengguna_data.dart';
 import 'package:proto/rekomndedUser.dart';
 
@@ -180,21 +182,24 @@ class PopulerCard extends StatelessWidget {
                         Container(
                           child: Stack(
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20),
-                                    topRight: Radius.circular(20),
-                                  ),
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      tfood.gambar,
+                              Hero(
+                                tag: 'image-path-${tfood.gambar}',
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
                                     ),
-                                    fit: BoxFit.cover,
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        tfood.gambar,
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
+                                  width: 200,
+                                  height: 150,
                                 ),
-                                width: 200,
-                                height: 150,
                               ),
                               Positioned(
                                 top: 5,
@@ -217,20 +222,20 @@ class PopulerCard extends StatelessWidget {
                         ),
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 5),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              left: BorderSide(
-                                color: Colors.white24,
-                              ),
-                              right: BorderSide(
-                                color: Colors.white24,
-                              ),
-                              bottom: BorderSide(
-                                color: Colors.white24,
-                              ),
-                            ),
-                            color: Colors.white24,
-                          ),
+                          // decoration: BoxDecoration(
+                          //   border: Border(
+                          //     left: BorderSide(
+                          //       color: Colors.white24,
+                          //     ),
+                          //     right: BorderSide(
+                          //       color: Colors.white24,
+                          //     ),
+                          //     bottom: BorderSide(
+                          //       color: Colors.white24,
+                          //     ),
+                          //   ),
+                          //   color: Colors.white24,
+                          // ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -334,16 +339,27 @@ class KateMakanan extends StatelessWidget {
                       width: width / 4,
                       child: Column(
                         children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.orange.shade100,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://asset-a.grid.id/crop/0x0:0x0/945x630/photo/2018/09/23/807720460.jpg'),
-                                fit: BoxFit.cover,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DetailKategori(
+                                  judul: 'DKI Jakarta',
+                                  daerah: jakarta,
+                                );
+                              }));
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.orange.shade100,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://asset-a.grid.id/crop/0x0:0x0/945x630/photo/2018/09/23/807720460.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
@@ -354,55 +370,77 @@ class KateMakanan extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      width: width / 4,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.orange.shade100,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1598787466/tikcowoksqsoeuzwa4mx.jpg'),
-                                fit: BoxFit.cover,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailKategori(
+                            judul: 'Jambi',
+                            daerah: jambi,
+                          );
+                        }));
+                      },
+                      child: Container(
+                        width: width / 4,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.orange.shade100,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1598787466/tikcowoksqsoeuzwa4mx.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'Jambi',
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Jambi',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      width: width / 4,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.orange.shade100,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://i2.wp.com/gpriority.co.id/wp-content/uploads/2021/02/jenis-rumah-bolon.jpg?fit=640%2C480&ssl=1'),
-                                fit: BoxFit.cover,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailKategori(
+                            judul: 'Jambi',
+                            daerah: jambi,
+                          );
+                        }));
+                      },
+                      child: Container(
+                        width: width / 4,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.orange.shade100,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://i2.wp.com/gpriority.co.id/wp-content/uploads/2021/02/jenis-rumah-bolon.jpg?fit=640%2C480&ssl=1'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text('Sumatra Utara'),
-                        ],
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Sumatra Utara'),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -414,76 +452,109 @@ class KateMakanan extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      width: width / 4,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.orange.shade100,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://upload.wikimedia.org/wikipedia/commons/8/88/Raja_Ampat%2C_Mutiara_Indah_di_Timur_Indonesia.jpg'),
-                                fit: BoxFit.cover,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailKategori(
+                            judul: 'Jambi',
+                            daerah: jambi,
+                          );
+                        }));
+                      },
+                      child: Container(
+                        width: width / 4,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.orange.shade100,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://upload.wikimedia.org/wikipedia/commons/8/88/Raja_Ampat%2C_Mutiara_Indah_di_Timur_Indonesia.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text('Papua'),
-                        ],
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Papua'),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      width: width / 4,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.orange.shade100,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://cdn0-production-images-kly.akamaized.net/9CsRTldAior0074hWVXqJ8g0hNc=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2967673/original/087136200_1573726271-IMG_20191114_003840.jpg'),
-                                fit: BoxFit.cover,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailKategori(
+                            judul: 'Jambi',
+                            daerah: jambi,
+                          );
+                        }));
+                      },
+                      child: Container(
+                        width: width / 4,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.orange.shade100,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://cdn0-production-images-kly.akamaized.net/9CsRTldAior0074hWVXqJ8g0hNc=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2967673/original/087136200_1573726271-IMG_20191114_003840.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text('Riau'),
-                        ],
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Riau'),
+                          ],
+                        ),
                       ),
                     ),
-                    Container(
-                      width: width / 4,
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 80,
-                            height: 80,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.orange.shade100,
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://sgp1.digitaloceanspaces.com/tz-mag-id/wp-content/uploads/2018/05/020205053333/surga-tersembunyi-pantai-ora-maluku-by-stephanie_oq-1024x683.jpg'),
-                                fit: BoxFit.cover,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailKategori(
+                            judul: 'Jambi',
+                            daerah: jambi,
+                          );
+                        }));
+                      },
+                      child: Container(
+                        width: width / 4,
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 80,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(80),
+                                color: Colors.orange.shade100,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://sgp1.digitaloceanspaces.com/tz-mag-id/wp-content/uploads/2018/05/020205053333/surga-tersembunyi-pantai-ora-maluku-by-stephanie_oq-1024x683.jpg'),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text('Maluku'),
-                        ],
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Maluku'),
+                          ],
+                        ),
                       ),
                     ),
                   ],

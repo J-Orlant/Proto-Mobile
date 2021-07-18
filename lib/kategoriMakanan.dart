@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/model/Provinsi_data.dart';
 
+import 'detailKategori.dart';
+import 'model/kategori_data.dart';
+
 class KategoriMakanan extends StatefulWidget {
   @override
   _KategoriMakananState createState() => _KategoriMakananState();
@@ -86,7 +89,15 @@ class _KategoriMakananState extends State<KategoriMakanan> {
                 child: Column(
                   children: provinsi.map((key) {
                     return InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return DetailKategori(
+                              judul: '${key}',
+                              daerah: jakarta,
+                            );
+                          }));
+                        },
                         child: ListTile(
                           leading: Container(
                             width: 20,

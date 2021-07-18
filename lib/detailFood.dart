@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/model/TopFood_data.dart';
 import 'package:proto/model/feedData.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 // Ini Modelan Baru
 class ResepMakanan extends StatefulWidget {
@@ -17,9 +18,19 @@ class ResepMakanan extends StatefulWidget {
 
 class _ResepMakananState extends State<ResepMakanan> {
   int selectedIndex = 0;
+  bool isVideoClick = false;
 
   @override
   Widget build(BuildContext context) {
+    YoutubePlayerController _controller = YoutubePlayerController(
+        initialVideoId: (widget.tfood == null)
+            ? widget.feedData!.youtube
+            : widget.tfood!.youtube,
+        flags: YoutubePlayerFlags(
+          autoPlay: false,
+          mute: false,
+        ));
+
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     var selectedWindow = [
@@ -30,335 +41,367 @@ class _ResepMakananState extends State<ResepMakanan> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Stack(
-                children: [
-                  Container(
-                    width: width,
-                    height: height * 0.4,
-                    // height: 320,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(widget.tfood == null
-                            ? widget.feedData!.gambar
-                            : widget.tfood!.gambar),
-                      ),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(45),
-                        bottomRight: Radius.circular(45),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey,
-                            // offset: Offset(-2.0, 2.0),
-                            blurRadius: 10.0,
-                            spreadRadius: 12.0),
-                      ],
-                    ),
-                    // Ini Untuk Tag nama daerah
-                    // child: Stack(
-                    //   children: [
-                    //     Positioned(
-                    //       bottom: 20,
-                    //       left: 22,
-                    //       child: Container(
-                    //         height: 22,
-                    //         width: 75,
-                    //         decoration: BoxDecoration(
-                    //           color: Colors.white,
-                    //           borderRadius: BorderRadius.circular(50),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     Positioned(
-                    //       bottom: 20,
-                    //       left: 27,
-                    //       child: Text('Jakarta',
-                    //           style: GoogleFonts.roboto(
-                    //             fontSize: 18,
-                    //             fontWeight: FontWeight.w800,
-                    //             color: Colors.orange,
-                    //           )),
-                    //     ),
-                    //   ],
-                    // ),
-                  ),
-                  Container(
-                    width: width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.arrow_back_ios,
-                            size: 25,
-                            color: Colors.orange.shade300,
-                          ),
-                        ),
-                        BookMark(),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: 15),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 25),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            widget.tfood == null
-                                ? widget.feedData!.nama
-                                : widget.tfood!.nama,
-                            style: GoogleFonts.oswald(
-                              fontSize: 31,
-                              fontWeight: FontWeight.w400,
+          child: Stack(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Stack(
+                    children: [
+                      Hero(
+                        tag:
+                            'image-path-${widget.tfood == null ? widget.feedData!.gambar : widget.tfood!.gambar}',
+                        child: Container(
+                          width: width,
+                          height: height * 0.4,
+                          // height: 320,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: NetworkImage(widget.tfood == null
+                                  ? widget.feedData!.gambar
+                                  : widget.tfood!.gambar),
                             ),
-                          ),
-                        ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Container(
-                                width: 25,
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(50),
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                        'https://assets.pikiran-rakyat.com/crop/0x372:670x1021/x/photo/2020/07/17/4102275230.png'),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5.0),
-                                child: Text(
-                                  'shinryuuu_',
-                                  style: GoogleFonts.oswald(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(45),
+                              bottomRight: Radius.circular(45),
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                // offset: Offset(-2.0, 2.0),
+                                blurRadius: 10.0,
+                                spreadRadius: 12.0,
                               ),
                             ],
                           ),
                         ),
+                      ),
+                      Container(
+                        width: width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: Icon(
+                                Icons.arrow_back_ios,
+                                size: 25,
+                                color: Colors.orange.shade300,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      isVideoClick = true;
+                                    });
+                                  },
+                                  icon: Icon(
+                                    Icons.video_call,
+                                    color: Colors.white,
+                                    size: 30,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 7,
+                                ),
+                                BookMark()
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 25),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Text(
+                                widget.tfood == null
+                                    ? widget.feedData!.nama
+                                    : widget.tfood!.nama,
+                                style: GoogleFonts.oswald(
+                                  fontSize: 31,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 25,
+                                    height: 25,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(50),
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            'https://assets.pikiran-rakyat.com/crop/0x372:670x1021/x/photo/2020/07/17/4102275230.png'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5.0),
+                                    child: Text(
+                                      'shinryuuu_',
+                                      style: GoogleFonts.oswald(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Text(
+                                widget.tfood == null
+                                    ? widget.feedData!.daerah
+                                    : widget.tfood!.daerah,
+                                style: GoogleFonts.oswald(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  child: Icon(Icons.access_time,
+                                      color: Colors.grey.withOpacity(0.5),
+                                      size: 25),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 3.0),
+                                  child: Text(
+                                    widget.tfood == null
+                                        ? widget.feedData!.waktu
+                                        : widget.tfood!.waktu,
+                                    style: GoogleFonts.oswald(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey.withOpacity(0.8),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ],
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                    padding: EdgeInsets.only(left: 25),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          child: Text(
-                            widget.tfood == null
-                                ? widget.feedData!.daerah
-                                : widget.tfood!.daerah,
-                            style: GoogleFonts.oswald(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
                         Row(
                           children: [
                             Container(
-                              child: Icon(Icons.access_time,
-                                  color: Colors.grey.withOpacity(0.5),
-                                  size: 25),
+                              child: Icon(
+                                Icons.favorite_border,
+                                size: 25,
+                                color: Colors.pink,
+                              ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 3.0),
+                              padding: const EdgeInsets.only(left: 3),
                               child: Text(
-                                widget.tfood == null
-                                    ? widget.feedData!.waktu
-                                    : widget.tfood!.waktu,
+                                '900',
                                 style: GoogleFonts.oswald(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.grey.withOpacity(0.8),
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ),
                           ],
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 15),
-              Container(
-                padding: EdgeInsets.only(left: 25),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          child: Icon(
-                            Icons.favorite_border,
-                            size: 25,
-                            color: Colors.pink,
-                          ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 3),
-                          child: Text(
-                            '900',
-                            style: GoogleFonts.oswald(
-                              fontWeight: FontWeight.w400,
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 40.0),
+                              child: Icon(
+                                Icons.chat,
+                                size: 25,
+                                color: Colors.orange.shade400,
+                              ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 40.0),
-                          child: Icon(
-                            Icons.chat,
-                            size: 25,
-                            color: Colors.orange.shade400,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 3),
-                          child: Text(
-                            '900',
-                            style: GoogleFonts.oswald(
-                              fontWeight: FontWeight.w400,
+                            Padding(
+                              padding: const EdgeInsets.only(left: 3),
+                              child: Text(
+                                '900',
+                                style: GoogleFonts.oswald(
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 35),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  SizedBox(height: 35),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: selectedIndex == 0
-                                    ? Colors.orange
-                                    : Colors.transparent,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: selectedIndex == 0
+                                        ? Colors.orange
+                                        : Colors.transparent,
+                                  ),
+                                ),
+                              ),
+                              child: TextButton(
+                                child: Text(
+                                  'Bahan',
+                                  style: GoogleFonts.oswald(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                    color: selectedIndex == 0
+                                        ? Colors.orange
+                                        : Colors.black,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    selectedIndex = 0;
+                                  });
+                                },
                               ),
                             ),
                           ),
-                          child: TextButton(
-                            child: Text(
-                              'Bahan',
-                              style: GoogleFonts.oswald(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: selectedIndex == 0
-                                    ? Colors.orange
-                                    : Colors.black,
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: selectedIndex == 1
+                                        ? Colors.orange
+                                        : Colors.transparent,
+                                  ),
+                                ),
+                              ),
+                              child: TextButton(
+                                child: Text(
+                                  'Intruksi',
+                                  style: GoogleFonts.oswald(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                    color: selectedIndex == 1
+                                        ? Colors.orange
+                                        : Colors.black,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    selectedIndex = 1;
+                                  });
+                                },
                               ),
                             ),
-                            onPressed: () {
-                              setState(() {
-                                selectedIndex = 0;
-                              });
-                            },
                           ),
-                        ),
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                    color: selectedIndex == 2
+                                        ? Colors.orange
+                                        : Colors.transparent,
+                                  ),
+                                ),
+                              ),
+                              child: TextButton(
+                                child: Text(
+                                  'Komentar',
+                                  style: GoogleFonts.oswald(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                    color: selectedIndex == 2
+                                        ? Colors.orange
+                                        : Colors.black,
+                                  ),
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    selectedIndex = 2;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: selectedIndex == 1
-                                    ? Colors.orange
-                                    : Colors.transparent,
-                              ),
-                            ),
-                          ),
-                          child: TextButton(
-                            child: Text(
-                              'Intruksi',
-                              style: GoogleFonts.oswald(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: selectedIndex == 1
-                                    ? Colors.orange
-                                    : Colors.black,
-                              ),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                selectedIndex = 1;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: selectedIndex == 2
-                                    ? Colors.orange
-                                    : Colors.transparent,
-                              ),
-                            ),
-                          ),
-                          child: TextButton(
-                            child: Text(
-                              'Komentar',
-                              style: GoogleFonts.oswald(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: selectedIndex == 2
-                                    ? Colors.orange
-                                    : Colors.black,
-                              ),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                selectedIndex = 2;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
+
+                      SizedBox(height: 10),
+                      Container(child: selectedWindow[selectedIndex]),
+
+                      // BagianBahan
+
+                      // Akhir Bagian Bahan
+                      // Uy
                     ],
                   ),
-
-                  SizedBox(height: 10),
-                  Container(child: selectedWindow[selectedIndex]),
-
-                  // BagianBahan
-
-                  // Akhir Bagian Bahan
-                  // Uy
                 ],
+              ),
+              Positioned(
+                top: 40,
+                child: (isVideoClick)
+                    ? Column(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isVideoClick = !isVideoClick;
+                              });
+                            },
+                            icon: Icon(
+                              Icons.close,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Container(
+                            color: Colors.black26.withOpacity(0.5),
+                            width: width,
+                            height: width / 1.5,
+                            child: YoutubePlayer(
+                              controller: _controller,
+                              showVideoProgressIndicator: true,
+                              progressIndicatorColor: Colors.blue,
+                            ),
+                          ),
+                        ],
+                      )
+                    : Container(),
               ),
             ],
           ),

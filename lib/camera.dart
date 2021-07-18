@@ -70,7 +70,7 @@ class _CameraState extends State<Camera> {
                             onPressed: () async {
                               if (!controller.value.isTakingPicture) {
                                 File? result = await takePicture();
-                                // Navigator.push(context, route)
+                                Navigator.pop(context, result);
                               }
                             },
                             shape: CircleBorder(),

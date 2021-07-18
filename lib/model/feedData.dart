@@ -3,6 +3,7 @@ class FeedData {
   String nama;
   String daerah;
   String waktu;
+  String youtube;
   List bahan;
   List gambarBahan;
   List jumlahBahan;
@@ -14,6 +15,7 @@ class FeedData {
     required this.nama,
     required this.daerah,
     required this.waktu,
+    required this.youtube,
     required this.bahan,
     required this.gambarBahan,
     required this.jumlahBahan,
@@ -66,6 +68,7 @@ var feedDataFood = [
       'http://3.bp.blogspot.com/-zcjRrqcwRv0/VnvTLbuRyqI/AAAAAAAACv0/C-QAai6RSsc/s1600/serabi%2Btepung%2Bberas.jpg',
       'http://kbu-cdn.com/dk/wp-content/uploads/serabi-manis.jpg',
     ],
+    youtube: '-3iwz_OzdOI',
   ),
   FeedData(
     gambar:
@@ -141,6 +144,7 @@ var feedDataFood = [
       'https://media.tabloidbintang.com/files/thumb/bika-ambon-3-ryan-muhjani.JPG/745',
       'https://cdn.idntimes.com/content-images/community/2021/01/fromandroid-bce44a3308ea3357c8f5754197c2fd16.jpg',
     ],
+    youtube: 'zSkcvoeJBfk',
   ),
   FeedData(
     gambar:
@@ -209,6 +213,7 @@ var feedDataFood = [
       'https://statik.tempo.co/data/2017/08/02/id_628846/628846_620.jpg',
       'https://phinemo.com/wp-content/uploads/2018/10/42600102_1117530505088861_8745595700139524096_n.jpg',
     ],
+    youtube: '3tGj1B90Uns',
   ),
   FeedData(
     gambar:
@@ -272,6 +277,7 @@ var feedDataFood = [
       'https://cdns.klimg.com/merdeka.com/i/w/news/2019/11/29/1129678/540x270/resep-ayam-betutu-khas-bali-yang-gurih-dan-berbumbu-mantap.jpg',
       'https://www.palmia.co.id/media/recipe/medium/8d482752e67d760bebf6a71b343913f5.jpg',
     ],
+    youtube: '4n-NHxbIZFs',
   ),
   FeedData(
     gambar:
@@ -348,6 +354,7 @@ var feedDataFood = [
       'https://awsimages.detik.net.id/community/media/visual/2018/07/10/0c13e0e1-ecaa-4370-af3d-4ab52b7e4c31_43.jpeg?w=700&q=90',
       'https://www.masakapahariini.com/wp-content/uploads/2019/08/mie-aceh-750x440.jpg',
     ],
+    youtube: 'bY2moXHoyzk',
   ),
   FeedData(
     gambar:
@@ -386,6 +393,7 @@ var feedDataFood = [
       'https://beritapapua.id/wp-content/uploads/2020/02/ikan-asarjpg-xPgz.jpg',
       'https://indonesiakaya.com/wp-content/uploads/2020/10/Ikan_Asar_yang_sudah_matang_dan_siap_untuk_disajikan_atau_diolah_lagi_.jpg',
     ],
+    youtube: '1_JAcngk4C0',
   ),
   FeedData(
     gambar:
@@ -456,6 +464,7 @@ var feedDataFood = [
       'https://upload.wikimedia.org/wikipedia/commons/2/2f/Ayam-cincane.jpg',
       'http://www.semangat45.co/images/news/2123.jpg',
     ],
+    youtube: 'f8aTv_55Wgg',
   ),
   FeedData(
     gambar:
@@ -515,6 +524,7 @@ var feedDataFood = [
       'https://blog.tokowahab.com/wp-content/uploads/2020/03/Resep-Ayam-Bakar-Taliwang.jpg',
       'https://www.sajianlezat.com/media/image/ayam/ayam-taliwang.jpg'
     ],
+    youtube: 'xPD16LxhPMI',
   ),
   FeedData(
     gambar:
@@ -556,6 +566,7 @@ var feedDataFood = [
       'https://www.tagar.id/Asset/uploads2019/1569566004705-lapalapa.jpg',
       'https://2.bp.blogspot.com/-KREYU6cdsV0/Vu1HBl20GvI/AAAAAAAAjGE/DWfpAbWE9cEwAtOyfd-sM_5kRUzD7tZhA/s640/CendanaNewsKendariRustam2.jpg'
     ],
+    youtube: 'peI8EtxQn1s',
   ),
   FeedData(
     gambar:
@@ -595,5 +606,6 @@ var feedDataFood = [
       'https://awsimages.detik.net.id/community/media/visual/2019/09/06/14cc42ca-a8d6-43b9-baa5-016660b9cd0e.jpeg?a=1',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYmVWctcpUmE2J5P2XE1nUzeHM9hv7y_upyA&usqp=CAU'
     ],
+    youtube: '-dvufL9fk3Q',
   ),
 ];

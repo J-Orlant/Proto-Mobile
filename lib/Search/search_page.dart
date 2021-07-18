@@ -105,15 +105,18 @@ class KartuPost extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Container(
-                  height: 105,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        feedData.gambar,
+                child: Hero(
+                  tag: 'image-path-${feedData.gambar}',
+                  child: Container(
+                    height: 105,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          feedData.gambar,
+                        ),
                       ),
                     ),
                   ),

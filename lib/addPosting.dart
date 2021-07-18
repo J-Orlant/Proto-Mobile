@@ -1,7 +1,9 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proto/camera.dart';
+import 'package:proto/model/searchdata.dart';
 
 class AddPosting extends StatefulWidget {
   AddPosting({Key? key}) : super(key: key);
@@ -12,6 +14,7 @@ class AddPosting extends StatefulWidget {
 
 class _AddPostingState extends State<AddPosting> {
   var dropDownValue;
+  var waktuValue;
   var items = [
     'Aceh',
     'Sumatera Utara',
@@ -48,56 +51,54 @@ class _AddPostingState extends State<AddPosting> {
     'Papua Barat',
     'Papua',
   ];
+
+  var waktu = [
+    'Jam',
+    'Menit',
+    'Detik',
+  ];
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            Container(
-              width: width,
-              height: height,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    foto(width: width),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    formInput(width: width),
-                  ],
+        child: Container(
+          width: width,
+          height: height,
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                foto(width: width),
+                SizedBox(
+                  height: 30,
                 ),
-              ),
+                formInput(width: width),
+              ],
             ),
-            Positioned(
-              bottom: 5,
-              left: 25,
-              right: 25,
-              child: Container(
-                width: width - 50,
-                height: width / 6,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.orange,
-                ),
-                child: Center(
-                  child: Text(
-                    'Publish',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            )
-          ],
+          ),
         ),
       ),
+      floatingActionButton: Container(
+        width: width - 50,
+        height: width / 6,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.orange,
+        ),
+        child: Center(
+          child: Text(
+            'Publish',
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -152,6 +153,10 @@ class _AddPostingState extends State<AddPosting> {
                       ListTile(
                         leading: new Icon(Icons.camera),
                         title: new Text('Kamera'),
+                        onTap: () async {
+                          await Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => Camera()));
+                        },
                       ),
                       ListTile(
                         leading: new Icon(Icons.photo),
@@ -251,6 +256,59 @@ class _AddPostingState extends State<AddPosting> {
                   });
                 },
               ),
+              SizedBox(
+                height: 20,
+              ),
+              // Note: FormGroup waktu
+              Text(
+                'Waktu Pembuatan',
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
+              Container(
+                width: width / 1.5,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: TextField(
+                        autofocus: false,
+                        decoration: InputDecoration(),
+                      ),
+                    ),
+                    Expanded(
+                      child: DropdownButton(
+                        value: waktuValue,
+                        items: waktu.map((String waktuItems) {
+                          return DropdownMenuItem(
+                            value: waktuItems,
+                            child: Text(
+                              waktuItems,
+                              style: GoogleFonts.poppins(),
+                            ),
+                          );
+                        }).toList(),
+                        hint: Text(
+                          'Jam',
+                          style: GoogleFonts.poppins(
+                            color: Colors.orange.shade200,
+                          ),
+                        ),
+                        onChanged: (newValue) {
+                          setState(() {
+                            waktuValue = newValue;
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
               SizedBox(
                 height: 20,
@@ -282,44 +340,39 @@ class _AddPostingState extends State<AddPosting> {
                         ),
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      child: SearchBahan(),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: width,
+                      height: width / 1.5,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 5,
-                                child: TextField(
-                                  autofocus: false,
-                                  decoration: InputDecoration(
-                                    labelText: 'Cari Bahan',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 3,
-                                        color: Colors.orange.shade200,
-                                      ),
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        width: 3,
-                                        color: Colors.orange,
-                                      ),
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.search,
-                                    size: 30,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
+                          Text(
+                            'Langkah - langkah',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          TextField(
+                            maxLines: 8,
+                            decoration: InputDecoration.collapsed(
+                              border: OutlineInputBorder(),
+                              hintText: 'Masukkan langkah pembuatan',
+                            ).copyWith(
+                                isDense: true,
+                                contentPadding: EdgeInsets.all(10)),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                         ],
                       ),
                     ),
@@ -327,6 +380,102 @@ class _AddPostingState extends State<AddPosting> {
                 ),
               )
             ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SearchBahan extends StatefulWidget {
+  SearchBahan({Key? key}) : super(key: key);
+
+  @override
+  _SearchBahanState createState() => _SearchBahanState();
+}
+
+class _SearchBahanState extends State<SearchBahan> {
+  final TextEditingController _textEditingController = TextEditingController();
+
+  List<String> bahanItem = [
+    'Telur',
+    'Nasi',
+    'Bawang Putih',
+    'Bawang Merah',
+    'Garam',
+    'Cabai',
+    'Gula',
+    'Nasi',
+  ];
+
+  List selectedBahan = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              flex: 5,
+              child: TypeAheadField(
+                textFieldConfiguration: TextFieldConfiguration(
+                  autofocus: false,
+                  style: DefaultTextStyle.of(context)
+                      .style
+                      .copyWith(fontStyle: FontStyle.italic),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Bahan apa saja yang dibutuhkan?'),
+                ),
+                suggestionsCallback: (pattern) => bahanItem.where((item) =>
+                    item.toLowerCase().contains(pattern.toLowerCase())),
+                itemBuilder: (_, String item) => ListTile(
+                  title: (Text(item)),
+                ),
+                onSuggestionSelected: (String val) {
+                  setState(() {
+                    selectedBahan.add(val);
+                  });
+                },
+                getImmediateSuggestions: true,
+                hideSuggestionsOnKeyboardHide: false,
+                hideOnEmpty: false,
+                noItemsFoundBuilder: (context) => Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text('Tidak dapat menemukan bahan'),
+                ),
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                onPressed: () {
+                  selectedBahan.isEmpty
+                      ? null
+                      : setState(() {
+                          selectedBahan.clear();
+                        });
+                },
+                icon: Icon(
+                  Icons.clear,
+                  size: 30,
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Container(
+          child: Column(
+            children: selectedBahan.map((data) {
+              return Builder(builder: (BuildContext context) {
+                return ListTile(
+                  title: Text(data),
+                );
+              });
+            }).toList(),
           ),
         ),
       ],
