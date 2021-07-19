@@ -11,42 +11,7 @@ class KategoriMakanan extends StatefulWidget {
 }
 
 class _KategoriMakananState extends State<KategoriMakanan> {
-  var provinsi = [
-    'Aceh',
-    'Sumatera Utara',
-    'Sumatera Barat',
-    'Riau',
-    'Kepulauan Riau',
-    'Jambi',
-    'Sumatera Selatan',
-    'Kepulauan Bangka Belitung',
-    'Bengkulu',
-    'Lampung',
-    'DKI Jakarta',
-    'Banten',
-    'Jawa Barat',
-    'Jawa Tengah',
-    'DI Yogyakarta',
-    'Jawa Timur',
-    'Bali',
-    'Nusa Tenggara Barat',
-    'Nusa Tenggara Timur',
-    'Kalimantan Barat',
-    'Kalimantan Tengah',
-    'Provinsi Kalimantan Selatan',
-    'Kalimantan Timur',
-    'Kalimantan Utara',
-    'Sulawesi Utara',
-    'Gorontalo',
-    'Sulawesi Tengah',
-    'Sulawesi Barat',
-    'Provinsi Sulawesi Selatan',
-    'Sulawesi Tenggara',
-    'Maluku',
-    'Maluku Utara',
-    'Papua Barat',
-    'Papua',
-  ];
+  var provinsi = DataProvinsi();
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +52,13 @@ class _KategoriMakananState extends State<KategoriMakanan> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
-                  children: provinsi.map((key) {
+                  children: provinsi.daerah.keys.map((data) {
                     return InkWell(
                         onTap: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
                             return DetailKategori(
-                              judul: '${key}',
+                              judul: '${data}',
                               daerah: jakarta,
                             );
                           }));
@@ -108,7 +73,7 @@ class _KategoriMakananState extends State<KategoriMakanan> {
                             ),
                           ),
                           title: Text(
-                            key,
+                            data,
                             style: GoogleFonts.poppins(fontSize: 20),
                           ),
                         ));

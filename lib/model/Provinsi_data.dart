@@ -1,16 +1,18 @@
+import 'package:proto/model/kategori_data.dart';
+
 class DataProvinsi {
-  var provinsi = {
-    'Aceh': 'Banda Aceh',
+  var daerah = {
+    'Aceh': aceh,
     'Sumatera Utara': 'Medan',
     'Sumatera Barat': 'Padang',
     'Riau': 'Pekanbaru',
     'Kepulauan Riau': 'Tanjungpinang',
-    'Jambi': 'Jambi',
+    'Jambi': jambi,
     'Sumatera Selatan': 'Palembang',
     'Kepulauan Bangka Belitung': 'Pangkal Pinang',
     'Bengkulu': 'Bengkulu',
     'Lampung': 'Bandar Lampung',
-    'DKI Jakarta ': 'Jakarta',
+    'DKI Jakarta ': jakarta,
     'Banten': 'Serang',
     'Jawa Barat': 'Bandung',
     'Jawa Tengah': 'Semarang',

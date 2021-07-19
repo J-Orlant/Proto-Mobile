@@ -52,3 +52,26 @@ var jambi = [
     nama: 'Gulai Terjun',
   ),
 ];
+
+var aceh = [
+  Kategori(
+    gambar:
+        'https://asset.kompas.com/crops/7tBNI9-TCa-oOq8tQTahf0ua1fg=/0x0:968x645/750x500/data/photo/2021/01/27/6010ce2cc1805.jpg',
+    nama: 'Mie Aceh',
+  ),
+  Kategori(
+    gambar:
+        'https://img-global.cpcdn.com/recipes/12652ebe6fe2a0fb/1200x630cq70/photo.jpg',
+    nama: 'Nasi Gemuk',
+  ),
+  Kategori(
+    gambar:
+        'https://awsimages.detik.net.id/community/media/visual/2019/01/16/34606b45-7ccf-4d77-a666-7297a452f011.jpeg?w=700&q=90',
+    nama: 'Pempek',
+  ),
+  Kategori(
+    gambar:
+        'https://putratravel.net/wp-content/uploads/2019/04/Gulai-Terjun.jpg',
+    nama: 'Gulai Terjun',
+  ),
+];
