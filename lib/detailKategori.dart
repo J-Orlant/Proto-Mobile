@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/model/kategori_data.dart';
 
 class DetailKategori extends StatefulWidget {
-  final String judul;
+  final judul;
 
   final daerah;
 
@@ -21,7 +21,7 @@ class _DetailKategoriState extends State<DetailKategori> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.judul,
+          '${widget.judul}',
           style: GoogleFonts.poppins(
             fontSize: 20,
             fontWeight: FontWeight.bold,

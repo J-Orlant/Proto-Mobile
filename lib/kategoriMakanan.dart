@@ -52,31 +52,35 @@ class _KategoriMakananState extends State<KategoriMakanan> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: Column(
-                  children: provinsi.daerah.keys.map((data) {
-                    return InkWell(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return DetailKategori(
-                              judul: '${data}',
-                              daerah: jakarta,
-                            );
-                          }));
-                        },
-                        child: ListTile(
-                          leading: Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.orange.shade200,
+                  children: provinsi.pancingan.map((data) {
+                    var index = provinsi.pancingan.indexOf(data);
+                    var value = provinsi.daerah.values.elementAt(index);
+                    return Builder(builder: (BuildContext context) {
+                      return InkWell(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return DetailKategori(
+                                judul: '$data',
+                                daerah: value,
+                              );
+                            }));
+                          },
+                          child: ListTile(
+                            leading: Container(
+                              width: 20,
+                              height: 20,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.orange.shade200,
+                              ),
                             ),
-                          ),
-                          title: Text(
-                            data,
-                            style: GoogleFonts.poppins(fontSize: 20),
-                          ),
-                        ));
+                            title: Text(
+                              data,
+                              style: GoogleFonts.poppins(fontSize: 20),
+                            ),
+                          ));
+                    });
                   }).toList(),
                 ),
               )
