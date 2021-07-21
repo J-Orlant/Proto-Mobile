@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/detailFood.dart';
 import 'package:proto/detailKategori.dart';
 import 'package:proto/kategoriMakanan.dart';
@@ -307,10 +308,9 @@ class KateMakanan extends StatelessWidget {
             children: [
               Text(
                 'Kategori Makanan',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'RedHatText',
                 ),
               ),
               IconButton(
@@ -413,8 +413,8 @@ class KateMakanan extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return DetailKategori(
-                            judul: 'Jambi',
-                            daerah: jambi,
+                            judul: 'Sumatra Utara',
+                            daerah: sumatra_utara,
                           );
                         }));
                       },
@@ -492,8 +492,8 @@ class KateMakanan extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return DetailKategori(
-                            judul: 'Jambi',
-                            daerah: jambi,
+                            judul: 'Riau',
+                            daerah: riau,
                           );
                         }));
                       },

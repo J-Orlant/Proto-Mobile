@@ -61,18 +61,18 @@ var aceh = [
   ),
   Kategori(
     gambar:
-        'https://img-global.cpcdn.com/recipes/12652ebe6fe2a0fb/1200x630cq70/photo.jpg',
-    nama: 'Nasi Gemuk',
+        'http://1.bp.blogspot.com/-vTRMbOvfMqg/Vt1O1qof5zI/AAAAAAAAA_k/l4tOiz6mMYc/s1600/2016-07-3--16-49-56.png',
+    nama: 'Ungkot Kemamah',
   ),
   Kategori(
     gambar:
-        'https://awsimages.detik.net.id/community/media/visual/2019/01/16/34606b45-7ccf-4d77-a666-7297a452f011.jpeg?w=700&q=90',
-    nama: 'Pempek',
+        'https://awsimages.detik.net.id/community/media/visual/2016/11/19/8ba1b9ad-574f-49ac-b9fd-9ed094e82679.jpg?w=700&q=90',
+    nama: 'Kuah sie itek',
   ),
   Kategori(
     gambar:
-        'https://putratravel.net/wp-content/uploads/2019/04/Gulai-Terjun.jpg',
-    nama: 'Gulai Terjun',
+        'http://3.bp.blogspot.com/-zpD6Td7PIdU/Vlxxbcct2jI/AAAAAAAACAE/kwx6pdnaMoA/s1600/kuah%2Bpliek%2Bu.jpg',
+    nama: 'Kuah Pliek U',
   ),
 ];
 
@@ -289,8 +289,7 @@ var lampung = [
     nama: 'Seruit',
   ),
   Kategori(
-    gambar:
-        'https://i.ytimg.com/vi/KR8m3ivkb9k/maxresdefault.jpg',
+    gambar: 'https://i.ytimg.com/vi/KR8m3ivkb9k/maxresdefault.jpg',
     nama: 'Gabing',
   ),
   Kategori(
@@ -376,437 +375,433 @@ var yogyakarta = [
 
 var provinsi = [
   Kategori(
-    gambar:
-        '',
+    gambar: '',
     nama: '',
   ),
   Kategori(
-    gambar:
-        '',
+    gambar: '',
     nama: '',
   ),
   Kategori(
-    gambar:
-        '',
+    gambar: '',
     nama: '',
   ),
   Kategori(
-    gambar:
-        '',
+    gambar: '',
     nama: '',
   ),
 ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];
 
-var provinsi = [
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-  Kategori(
-    gambar:
-        '',
-    nama: '',
-  ),
-];
+// var provinsi = [
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+//   Kategori(
+//     gambar:
+//         '',
+//     nama: '',
+//   ),
+// ];

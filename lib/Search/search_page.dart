@@ -152,8 +152,8 @@ class KartuPost extends StatelessWidget {
                     Divider(color: Colors.black),
                     Text(
                       "Waktu pembuatan:",
-                      style: TextStyle(
-                        fontSize: 14,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
                         color: Color(0xFF363f93),
@@ -161,8 +161,8 @@ class KartuPost extends StatelessWidget {
                     ),
                     Text(
                       feedData.waktu,
-                      style: TextStyle(
-                        fontSize: 14,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
                         color: Color(0xFF363f93),
@@ -175,14 +175,14 @@ class KartuPost extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 15),
                           child: Icon(
                             Icons.favorite_border,
-                            size: 27,
+                            size: 25,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4),
                           child: Icon(
                             Icons.share_outlined,
-                            size: 27,
+                            size: 25,
                           ),
                         ),
                       ],

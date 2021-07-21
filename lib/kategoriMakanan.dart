@@ -37,12 +37,11 @@ class _KategoriMakananState extends State<KategoriMakanan> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text(
-                      'Kategori Makanan',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
+                    Text('Kategori Makanan',
+                        style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
                   ],
                 ),
               ),

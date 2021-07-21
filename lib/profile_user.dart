@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/detailFood.dart';
 import 'package:proto/model/TopFood_data.dart';
 import 'package:proto/utils/account_image.dart';
@@ -69,7 +70,7 @@ class _AccountPageState extends State<AccountPage> {
                                 child: Center(
                                   child: Text(
                                     '1',
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                       color: Colors.white,
                                     ),
                                   ),
@@ -143,16 +144,25 @@ class _AccountPageState extends State<AccountPage> {
                                             ),
                                             ListTile(
                                               leading: new Icon(Icons.settings),
-                                              title: new Text('Settings'),
+                                              title: new Text(
+                                                'Settings',
+                                                style: GoogleFonts.poppins(),
+                                              ),
                                             ),
                                             ListTile(
                                               leading: new Icon(Icons.bookmark),
-                                              title: new Text('Favorit'),
+                                              title: new Text(
+                                                'Favorit',
+                                                style: GoogleFonts.poppins(),
+                                              ),
                                             ),
                                             ListTile(
                                               leading: new Icon(
                                                   Icons.qr_code_outlined),
-                                              title: new Text('QR Code'),
+                                              title: new Text(
+                                                'QR Code',
+                                                style: GoogleFonts.poppins(),
+                                              ),
                                             ),
                                           ],
                                         );
@@ -209,7 +219,7 @@ class _BioDataState extends State<BioData> {
       children: [
         Text(
           'Ryujin',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
@@ -219,7 +229,7 @@ class _BioDataState extends State<BioData> {
         ),
         Text(
           'Jawa Barat, Bandung',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
             color: Colors.black26,
           ),
@@ -237,7 +247,7 @@ class _BioDataState extends State<BioData> {
               children: [
                 Text(
                   '1,206',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.black38,
@@ -248,7 +258,7 @@ class _BioDataState extends State<BioData> {
                 ),
                 Text(
                   'Pengikut',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.black38,
@@ -265,7 +275,7 @@ class _BioDataState extends State<BioData> {
               children: [
                 Text(
                   '40',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.black38,
@@ -276,7 +286,7 @@ class _BioDataState extends State<BioData> {
                 ),
                 Text(
                   'Postingan',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.black38,
@@ -310,17 +320,16 @@ class _PostinganState extends State<Postingan> {
             children: [
               Text(
                 'Postingan',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  // color: Colors.black54,
                 ),
               ),
               InkWell(
                 onTap: () {},
                 child: Text(
                   'Lihat Semua',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.black26,
