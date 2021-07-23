@@ -37,7 +37,8 @@ class _DetailKategoriState extends State<DetailKategori> {
           crossAxisSpacing: 4.0,
           children: widget.daerah.map<Widget>((data) {
             return Builder(builder: (BuildContext context) {
-              return Expanded(
+              return Container(
+                width: width / 2,
                 child: InkWell(
                   onTap: () {},
                   child: Card(

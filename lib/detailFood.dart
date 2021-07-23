@@ -230,7 +230,7 @@ class _ResepMakananState extends State<ResepMakanan> {
                               padding: const EdgeInsets.only(left: 3),
                               child: Text(
                                 '900',
-                                style: GoogleFonts.oswald(
+                                style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -251,7 +251,7 @@ class _ResepMakananState extends State<ResepMakanan> {
                               padding: const EdgeInsets.only(left: 3),
                               child: Text(
                                 '900',
-                                style: GoogleFonts.oswald(
+                                style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -282,7 +282,7 @@ class _ResepMakananState extends State<ResepMakanan> {
                               child: TextButton(
                                 child: Text(
                                   'Bahan',
-                                  style: GoogleFonts.oswald(
+                                  style: GoogleFonts.poppins(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w400,
                                     color: selectedIndex == 0
@@ -312,7 +312,7 @@ class _ResepMakananState extends State<ResepMakanan> {
                               child: TextButton(
                                 child: Text(
                                   'Intruksi',
-                                  style: GoogleFonts.oswald(
+                                  style: GoogleFonts.poppins(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w400,
                                     color: selectedIndex == 1
@@ -342,7 +342,7 @@ class _ResepMakananState extends State<ResepMakanan> {
                               child: TextButton(
                                 child: Text(
                                   'Komentar',
-                                  style: GoogleFonts.oswald(
+                                  style: GoogleFonts.poppins(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w400,
                                     color: selectedIndex == 2

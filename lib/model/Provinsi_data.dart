@@ -19,8 +19,8 @@ class DataProvinsi {
     'DI Yogyakarta': yogyakarta,
     'Jawa Timur': 'Surabaya',
     'Bali': bali,
-    'Nusa Tenggara Barat': 'Mataram',
-    'Nusa Tenggara Timur': 'Kupang',
+    // 'Nusa Tenggara Barat': 'Mataram',
+    // 'Nusa Tenggara Timur': 'Kupang',
     // 'Kalimantan Barat': 'Pontianak',
     // 'Kalimantan Tengah': 'Palangkaraya',
     // 'Provinsi Kalimantan Selatan': 'Banjarmasin',
@@ -32,7 +32,7 @@ class DataProvinsi {
     // 'Sulawesi Barat': 'Mamuju',
     // 'Provinsi Sulawesi Selatan': 'Makassar',
     // 'Sulawesi Tenggara': 'Kendari',
-    // 'Maluku': 'Ambon',
+    'Maluku': maluku,
     // 'Maluku Utara': 'Sofifi',
     // 'Papua Barat': 'Manokwari',
     // 'Papua': 'Jayapura',
@@ -56,5 +56,6 @@ class DataProvinsi {
     'DI Yogyakarta',
     'Jawa Timur',
     'Bali',
+    'Maluku',
   ];
 }

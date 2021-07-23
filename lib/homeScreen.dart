@@ -10,10 +10,8 @@ import 'package:proto/model/pengguna_data.dart';
 import 'package:proto/rekomndedUser.dart';
 
 class HomeScreen extends StatelessWidget {
-  final styleJudul = TextStyle(
+  final styleJudul = GoogleFonts.poppins(
     fontSize: 22.0,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'RedHatText',
     color: Colors.white,
   );
 
@@ -30,7 +28,12 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Container(
                   width: width,
-                  color: Colors.orange,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.orange, Colors.orange.shade200],
+                  )),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                       vertical: 10,
@@ -73,7 +76,8 @@ class HomeScreen extends StatelessWidget {
                                   Text(
                                     'Lihat Semua',
                                     style: TextStyle(
-                                      fontWeight: FontWeight.w100,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ],
@@ -98,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                       child: Container(
                         width: width,
                         height: 200,
-                        color: Colors.orange.shade400,
+                        color: Colors.orange.shade200,
                       ),
                     ),
                     Positioned(
@@ -245,7 +249,7 @@ class PopulerCard extends StatelessWidget {
                               ),
                               Text(
                                 tfood.nama,
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
@@ -257,7 +261,7 @@ class PopulerCard extends StatelessWidget {
                                 children: [
                                   Text(
                                     tfood.waktu,
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                       color: Colors.black26,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -267,13 +271,13 @@ class PopulerCard extends StatelessWidget {
                                       IconButton(
                                         onPressed: () {},
                                         icon: Icon(
-                                          Icons.thumb_up,
+                                          Icons.favorite,
                                           color: Colors.white,
                                         ),
                                       ),
                                       Text(
                                         '214',
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                           color: Colors.white,
                                         ),
                                       )
@@ -310,7 +314,7 @@ class KateMakanan extends StatelessWidget {
                 'Kategori Makanan',
                 style: GoogleFonts.poppins(
                   fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               IconButton(
@@ -356,8 +360,9 @@ class KateMakanan extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.orange.shade100,
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://asset-a.grid.id/crop/0x0:0x0/945x630/photo/2018/09/23/807720460.jpg'),
+                                  image: AssetImage(
+                                    'images/jakarta.jpg',
+                                  ),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -366,7 +371,10 @@ class KateMakanan extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
-                          Text('DKI Jakarta'),
+                          Text(
+                            'DKI Jakarta',
+                            style: GoogleFonts.poppins(),
+                          ),
                         ],
                       ),
                     ),
@@ -391,8 +399,9 @@ class KateMakanan extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.orange.shade100,
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1598787466/tikcowoksqsoeuzwa4mx.jpg'),
+                                  image: AssetImage(
+                                    'images/jambi.jpg',
+                                  ),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -403,6 +412,7 @@ class KateMakanan extends StatelessWidget {
                             Text(
                               'Jambi',
                               textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(),
                             ),
                           ],
                         ),
@@ -414,7 +424,7 @@ class KateMakanan extends StatelessWidget {
                             MaterialPageRoute(builder: (context) {
                           return DetailKategori(
                             judul: 'Sumatra Utara',
-                            daerah: sumatra_utara,
+                            daerah: bali,
                           );
                         }));
                       },
@@ -429,8 +439,9 @@ class KateMakanan extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.orange.shade100,
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://i2.wp.com/gpriority.co.id/wp-content/uploads/2021/02/jenis-rumah-bolon.jpg?fit=640%2C480&ssl=1'),
+                                  image: AssetImage(
+                                    'images/bali.jpg',
+                                  ),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -438,7 +449,11 @@ class KateMakanan extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            Text('Sumatra Utara'),
+                            Text(
+                              'Bali',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(),
+                            ),
                           ],
                         ),
                       ),
@@ -457,8 +472,8 @@ class KateMakanan extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return DetailKategori(
-                            judul: 'Jambi',
-                            daerah: jambi,
+                            judul: 'papua',
+                            daerah: papua,
                           );
                         }));
                       },
@@ -473,8 +488,7 @@ class KateMakanan extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.orange.shade100,
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://upload.wikimedia.org/wikipedia/commons/8/88/Raja_Ampat%2C_Mutiara_Indah_di_Timur_Indonesia.jpg'),
+                                  image: AssetImage('images/papua.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -482,7 +496,10 @@ class KateMakanan extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            Text('Papua'),
+                            Text(
+                              'Papua',
+                              style: GoogleFonts.poppins(),
+                            ),
                           ],
                         ),
                       ),
@@ -508,8 +525,7 @@ class KateMakanan extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.orange.shade100,
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://cdn0-production-images-kly.akamaized.net/9CsRTldAior0074hWVXqJ8g0hNc=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2967673/original/087136200_1573726271-IMG_20191114_003840.jpg'),
+                                  image: AssetImage('images/riau.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -517,7 +533,10 @@ class KateMakanan extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            Text('Riau'),
+                            Text(
+                              'Riau',
+                              style: GoogleFonts.poppins(),
+                            ),
                           ],
                         ),
                       ),
@@ -527,8 +546,8 @@ class KateMakanan extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return DetailKategori(
-                            judul: 'Jambi',
-                            daerah: jambi,
+                            judul: 'Maluku',
+                            daerah: maluku,
                           );
                         }));
                       },
@@ -543,8 +562,7 @@ class KateMakanan extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.orange.shade100,
                                 image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://sgp1.digitaloceanspaces.com/tz-mag-id/wp-content/uploads/2018/05/020205053333/surga-tersembunyi-pantai-ora-maluku-by-stephanie_oq-1024x683.jpg'),
+                                  image: AssetImage('images/maluku.jpg'),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -552,7 +570,10 @@ class KateMakanan extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            Text('Maluku'),
+                            Text(
+                              'Maluku',
+                              style: GoogleFonts.poppins(),
+                            ),
                           ],
                         ),
                       ),
@@ -579,10 +600,9 @@ class RekomendasiPengguna extends StatelessWidget {
         children: [
           Text(
             'Rekomendasi Pengguna',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'RedHatText',
+              fontWeight: FontWeight.w500,
             ),
           ),
           SizedBox(
@@ -635,7 +655,7 @@ class RekomendasiPengguna extends StatelessWidget {
                               ),
                               Text(
                                 pg.nama,
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),

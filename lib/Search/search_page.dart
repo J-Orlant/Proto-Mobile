@@ -138,7 +138,7 @@ class KartuPost extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
-                        color: Color(0xFF363f93),
+                        color: Colors.orange,
                       ),
                     ),
                     Text(
@@ -156,7 +156,7 @@ class KartuPost extends StatelessWidget {
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
-                        color: Color(0xFF363f93),
+                        color: Colors.orange,
                       ),
                     ),
                     Text(
@@ -165,7 +165,7 @@ class KartuPost extends StatelessWidget {
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
-                        color: Color(0xFF363f93),
+                        color: Colors.orange,
                       ),
                     ),
                     SizedBox(height: 6),

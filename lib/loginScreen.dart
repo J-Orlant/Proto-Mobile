@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proto/homeScreen.dart';
 import 'package:proto/main.dart';
 
@@ -19,8 +20,11 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           'Email',
-          style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         SizedBox(height: 10),
         Container(
@@ -37,14 +41,17 @@ class _LoginScreenState extends State<LoginScreen> {
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(
-                  Icons.email,
-                  color: Color(0xffF58123),
-                ),
-                hintText: 'Email',
-                hintStyle: TextStyle(color: Colors.black38)),
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14),
+              prefixIcon: Icon(
+                Icons.email,
+                color: Color(0xffF58123),
+              ),
+              hintText: 'Email',
+              hintStyle: GoogleFonts.poppins(
+                color: Colors.black38,
+              ),
+            ),
           ),
         )
       ],
@@ -57,8 +64,11 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           'Password',
-          style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         SizedBox(height: 10),
         Container(
@@ -75,14 +85,17 @@ class _LoginScreenState extends State<LoginScreen> {
             obscureText: true,
             style: TextStyle(color: Colors.black87),
             decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(
-                  Icons.lock,
-                  color: Color(0xffF58123),
-                ),
-                hintText: 'Password',
-                hintStyle: TextStyle(color: Colors.black38)),
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14),
+              prefixIcon: Icon(
+                Icons.lock,
+                color: Color(0xffF58123),
+              ),
+              hintText: 'Password',
+              hintStyle: GoogleFonts.poppins(
+                color: Colors.black38,
+              ),
+            ),
           ),
         )
       ],
@@ -96,8 +109,11 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () => print("Forgot Password pressed"),
         padding: EdgeInsets.only(right: 0),
         child: Text(
-          'Forgot Password?',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          'Lupa Password?',
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -118,11 +134,12 @@ class _LoginScreenState extends State<LoginScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         color: Colors.white,
         child: Text(
-          'LOGIN',
-          style: TextStyle(
-              color: Color(0xffF58123),
-              fontSize: 18,
-              fontWeight: FontWeight.bold),
+          'Masuk',
+          style: GoogleFonts.poppins(
+            color: Color(0xffF58123),
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
@@ -134,17 +151,21 @@ class _LoginScreenState extends State<LoginScreen> {
       child: RichText(
         text: TextSpan(children: [
           TextSpan(
-              text: 'Don\'t have an Account? ',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
+            text: 'Belum Punya Akun? ',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           TextSpan(
-              text: 'Sign Up',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold))
+            text: 'Daftar',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ]),
       ),
     );
@@ -177,11 +198,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Sign In',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold)),
+                    Text(
+                      'Nusa',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     SizedBox(
                       height: 50,
                     ),

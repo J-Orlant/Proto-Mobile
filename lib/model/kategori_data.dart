@@ -8,6 +8,7 @@ class Kategori {
   });
 }
 
+@override
 var jakarta = [
   Kategori(
     gambar: 'http://kbu-cdn.com/dk/wp-content/uploads/kerak-telor.jpg',
@@ -30,6 +31,7 @@ var jakarta = [
   ),
 ];
 
+@override
 var jambi = [
   Kategori(
     gambar:
@@ -53,6 +55,7 @@ var jambi = [
   ),
 ];
 
+@override
 var aceh = [
   Kategori(
     gambar:
@@ -76,6 +79,7 @@ var aceh = [
   ),
 ];
 
+@override
 var bali = [
   Kategori(
     gambar:
@@ -99,6 +103,7 @@ var bali = [
   ),
 ];
 
+@override
 var jawa_barat = [
   Kategori(
     gambar:
@@ -122,6 +127,7 @@ var jawa_barat = [
   ),
 ];
 
+@override
 var bengkulu = [
   Kategori(
     gambar:
@@ -145,6 +151,7 @@ var bengkulu = [
   ),
 ];
 
+@override
 var sumatra_barat = [
   Kategori(
     gambar:
@@ -168,6 +175,7 @@ var sumatra_barat = [
   ),
 ];
 
+@override
 var sumatra_utara = [
   Kategori(
     gambar:
@@ -191,6 +199,7 @@ var sumatra_utara = [
   ),
 ];
 
+@override
 var riau = [
   Kategori(
     gambar:
@@ -214,6 +223,7 @@ var riau = [
   ),
 ];
 
+@override
 var kepulauan_riau = [
   Kategori(
     gambar:
@@ -237,6 +247,7 @@ var kepulauan_riau = [
   ),
 ];
 
+@override
 var sumatra_selatan = [
   Kategori(
     gambar:
@@ -260,6 +271,7 @@ var sumatra_selatan = [
   ),
 ];
 
+@override
 var kepulauan_bangka_belitung = [
   Kategori(
     gambar:
@@ -282,6 +294,7 @@ var kepulauan_bangka_belitung = [
   ),
 ];
 
+@override
 var lampung = [
   Kategori(
     gambar:
@@ -304,6 +317,7 @@ var lampung = [
   ),
 ];
 
+@override
 var banten = [
   Kategori(
     gambar:
@@ -327,6 +341,7 @@ var banten = [
   ),
 ];
 
+@override
 var jawa_tengah = [
   Kategori(
     gambar:
@@ -350,6 +365,7 @@ var jawa_tengah = [
   ),
 ];
 
+@override
 var yogyakarta = [
   Kategori(
     gambar:
@@ -373,6 +389,7 @@ var yogyakarta = [
   ),
 ];
 
+@override
 var provinsi = [
   Kategori(
     gambar: '',
@@ -392,51 +409,51 @@ var provinsi = [
   ),
 ];
 
-// var provinsi = [
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-// ];
+var papua = [
+  Kategori(
+    gambar:
+        'https://asset-a.grid.id/crop/0x0:0x0/x/photo/2018/11/29/1531118368.jpg',
+    nama: 'Ikan Manokwari',
+  ),
+  Kategori(
+    gambar:
+        'https://kabare.id/uploads/article/20200526111351_5ecc977f0fb06_photo.jpg',
+    nama: 'Ikan Bungkus.',
+  ),
+  Kategori(
+    gambar:
+        'https://www.pegipegi.com/travel/wp-content/uploads/2018/08/shutterstock_1153605913-1.jpg',
+    nama: 'Udang Selingkuh',
+  ),
+  Kategori(
+    gambar:
+        'https://awsimages.detik.net.id/community/media/visual/2016/04/24/850f6f52-ed97-427e-a1f7-5a3cee56050d_169.jpg?w=700&q=90',
+    nama: 'Sagu Lempeng',
+  ),
+];
 
-// var provinsi = [
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-//   Kategori(
-//     gambar:
-//         '',
-//     nama: '',
-//   ),
-// ];
+var maluku = [
+  Kategori(
+    gambar:
+        'https://cdn.idntimes.com/content-images/community/2021/02/goarchie-20210206-113848-0-cad2b25a01dc8f98bd8ca892872337a4-e2ba2193358cb01b8958b0ad6cb7506f_600x400.jpg',
+    nama: 'Nasi Jaha',
+  ),
+  Kategori(
+    gambar:
+        'https://www.reseppedia.com/storage/upload/Resep_Sambal_Kenari_Khas_Maluku.jpeg',
+    nama: 'Sambal Kenari',
+  ),
+  Kategori(
+    gambar:
+        'https://upload.wikimedia.org/wikipedia/commons/0/01/Papeda%2C_Kuah_Kuning%2C_Ikan_Tude_Bakar_2.jpg',
+    nama: 'Papeda',
+  ),
+  Kategori(
+    gambar:
+        'https://indonesiakaya.com/wp-content/uploads/2020/10/Ikan_Asar_yang_sudah_matang_dan_siap_untuk_disajikan_atau_diolah_lagi_.jpg',
+    nama: 'Ikan Asar',
+  ),
+];
 
 // var provinsi = [
 //   Kategori(
