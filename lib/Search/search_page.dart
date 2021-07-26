@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:proto/detailFood.dart';
 import 'package:proto/model/feedData.dart';
@@ -6,7 +8,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../heks_color.dart';
 
-class Search extends StatelessWidget {
+class Search extends StatefulWidget {
+  @override
+  _SearchState createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,7 +53,7 @@ class Search extends StatelessWidget {
   }
 }
 
-class KartuPost extends StatelessWidget {
+class KartuPost extends StatefulWidget {
   const KartuPost({
     Key? key,
     required this.foodIndex,
@@ -56,6 +63,12 @@ class KartuPost extends StatelessWidget {
   final FeedData feedData;
 
   @override
+  _KartuPostState createState() => _KartuPostState();
+}
+
+class _KartuPostState extends State<KartuPost> {
+  var isFavorite = false;
+  @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
@@ -63,7 +76,7 @@ class KartuPost extends StatelessWidget {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return ResepMakanan(
-            feedData: feedData,
+            feedData: widget.feedData,
           );
         }));
       },
@@ -97,8 +110,8 @@ class KartuPost extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 12,
-              left: 30,
+              top: 6,
+              left: 22,
               child: Card(
                 elevation: 10,
                 shadowColor: Colors.grey.withOpacity(0.5),
@@ -106,16 +119,16 @@ class KartuPost extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Hero(
-                  tag: 'image-path-${feedData.gambar}',
+                  tag: 'image-path-${widget.feedData.gambar}',
                   child: Container(
-                    height: 105,
-                    width: 100,
+                    height: 120,
+                    width: 115,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                          feedData.gambar,
+                          widget.feedData.gambar,
                         ),
                       ),
                     ),
@@ -124,8 +137,8 @@ class KartuPost extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 10,
-              left: 150,
+              top: 5,
+              left: 160,
               child: Container(
                 height: 150,
                 width: 190,
@@ -133,19 +146,18 @@ class KartuPost extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      feedData.nama,
-                      style: TextStyle(
+                      widget.feedData.nama,
+                      style: GoogleFonts.poppins(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
-                        color: Colors.orange,
                       ),
                     ),
                     Text(
-                      feedData.daerah,
-                      style: TextStyle(
+                      widget.feedData.daerah,
+                      style: GoogleFonts.poppins(
                         fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
                         color: Colors.grey,
                       ),
                     ),
@@ -153,36 +165,43 @@ class KartuPost extends StatelessWidget {
                     Text(
                       "Waktu pembuatan:",
                       style: GoogleFonts.poppins(
-                        fontSize: 12,
+                        fontSize: 11,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
-                        color: Colors.orange,
                       ),
                     ),
                     Text(
-                      feedData.waktu,
+                      widget.feedData.waktu,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         // color: Colors.orange[700],
-                        color: Colors.orange,
                       ),
                     ),
-                    SizedBox(height: 6),
+                    SizedBox(height: 2),
                     Row(
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(right: 15),
-                          child: Icon(
-                            Icons.favorite_border,
-                            size: 25,
+                          child: InkWell(
+                            child: (isFavorite)
+                                ? Icon(
+                                    Icons.favorite,
+                                    color: Colors.pink.shade400,
+                                  )
+                                : Icon(Icons.favorite_border),
+                            onTap: () {
+                              setState(() {
+                                isFavorite = !isFavorite;
+                              });
+                            },
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 4),
                           child: Icon(
                             Icons.share_outlined,
-                            size: 25,
+                            size: 23,
                           ),
                         ),
                       ],
@@ -299,8 +318,11 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border,
-          color: Colors.pink[400]),
+      icon: Icon(
+        isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: Colors.pink[400],
+        size: 20,
+      ),
       onPressed: () {
         setState(() {
           isFavorite = !isFavorite;

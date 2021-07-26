@@ -353,7 +353,9 @@ class _PostinganState extends State<Postingan> {
                       onTap: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return DetailFood(tfood: tfood);
+                          return ResepMakanan(
+                            tfood: tfood,
+                          );
                         }));
                       },
                       child: Container(
