@@ -37,7 +37,8 @@ dependencies:
 
 flutter_native_splash:
   color: "#FFA500"
-  image: assets/koki.png
+  image: assets/logo.png
+  android_gravity: center_vertical
 
 dev_dependencies:
   flutter_test:
